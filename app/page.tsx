@@ -52,10 +52,10 @@ const projects: Project[] = [
 
 export default function Home() {
   return (
-    <div className="px-5 md:px-10">
+    <div>
       <Navbar />
 
-      <main>
+      <main className="px-5 md:px-10">
         <Hero />
 
         <section className="flex flex-col items-center justify-center space-y-5 pt-28 text-center">
