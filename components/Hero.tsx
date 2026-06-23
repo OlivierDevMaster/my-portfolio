@@ -46,7 +46,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative isolate flex min-h-[calc(100vh-88px)] flex-col md:min-h-[720px] md:justify-center md:py-4 container mx-auto">
+    <section className="relative isolate flex flex-col overflow-hidden pb-10 pt-32 md:min-h-[720px] md:justify-center md:overflow-visible md:py-4 md:pt-6 container mx-auto">
       <p
         aria-hidden="true"
         className="pointer-events-none absolute left-8 top-24 -z-10 hidden select-none text-[12rem] font-bold leading-none tracking-[-0.08em] text-gray-100/70 md:block lg:text-[17rem]"
@@ -54,10 +54,10 @@ export default function Hero() {
         developer
       </p>
 
-      <div className="grid flex-1 items-center gap-8 md:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.85fr)] md:gap-10">
-        <div className="order-2 max-w-2xl md:order-1">
+      <div className="relative grid flex-1 items-end gap-8 md:items-center md:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.85fr)] md:gap-10">
+        <div className="relative z-10 mt-[200px] md:mt-0 order-2 max-w-2xl md:order-1">
           <motion.p
-            className="mb-5 text-sm font-medium uppercase tracking-[0.45em] text-gray-400"
+            className="mb-5 text-sm font-medium tracking-[0.45em] text-gray-600"
             variants={fadeUp}
             initial="hidden"
             animate="visible"
@@ -103,9 +103,9 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <div className="order-1 flex justify-center md:order-2 md:self-stretch md:justify-end">
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-0 flex justify-end md:pointer-events-auto md:relative md:inset-auto md:order-2 md:self-stretch md:justify-end">
           <motion.div
-            className="relative h-[360px] w-full max-w-[340px] rounded-b-[42%] md:h-full md:min-h-[600px] md:max-w-[800px] md:rounded-none"
+            className="relative h-[440px] w-[90%] max-w-[420px] translate-x-10 rounded-b-[42%] md:h-full md:min-h-[600px] md:w-full md:max-w-[800px] md:translate-x-0 md:rounded-none"
             animate={{
               opacity: imageOpacity,
             }}
@@ -117,9 +117,9 @@ export default function Hero() {
               width={500}
               height={600}
               priority
-              className="w-full h-full"
+              className="h-full w-full object-contain object-top"
             />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-white via-white/80 to-transparent" />
           </motion.div>
         </div>
       </div>
