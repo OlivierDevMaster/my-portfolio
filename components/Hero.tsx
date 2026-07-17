@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, type Variants } from "motion/react";
 import { Button } from "./ui/button";
 import { handleGetInTouch } from "@/utils/functions";
+import { ArrowDown, ArrowUpRight, ArrowUpRightSquare } from "lucide-react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -49,7 +50,7 @@ export default function Hero() {
     <section className="relative isolate flex flex-col overflow-hidden pb-10 pt-32 md:min-h-[720px] md:justify-center md:overflow-visible md:py-4 md:pt-6 container mx-auto">
       <p
         aria-hidden="true"
-        className="pointer-events-none absolute left-8 top-24 -z-10 hidden select-none text-[12rem] font-bold leading-none tracking-[-0.08em] text-gray-100/70 md:block lg:text-[17rem]"
+        className="pointer-events-none absolute left-8 top-24 -z-10 hidden select-none text-[12rem] font-bold leading-none tracking-[-0.08em] text-gray-100/60 md:block lg:text-[17rem]"
       >
         developer
       </p>
@@ -57,25 +58,24 @@ export default function Hero() {
       <div className="relative grid flex-1 items-end gap-8 md:items-center md:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.85fr)] md:gap-10">
         <div className="relative z-10 mt-[200px] md:mt-0 order-2 max-w-2xl md:order-1">
           <motion.p
-            className="mb-5 text-sm font-medium tracking-[0.45em] text-gray-600"
+            className="mb-5 font-medium tracking-[0.45em] text-gray-600"
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={0.15}
           >
-            It's <span className="font-bold text-gray-700">Olivier</span>, Your
-            Full Stack Developer Partner.
+            Available for select engagements — 2026
           </motion.p>
 
           <motion.h1
-            className="text-5xl font-black leading-[0.95] tracking-[-0.06em] text-gray-950 md:text-6xl lg:text-7xl"
+            className="font-inter-tight font-light text-5xl leading-[0.95]  text-gray-950 md:text-6xl lg:text-8xl"
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={0.3}
           >
-            <span className="text-violet-600">Design. Code. Innovate.</span>{" "}
-            Your Full-Stack Partner.
+            <span className="text-violet-600">Design. Code.</span>{" "}
+            <span className="italic">Ship</span> what matters.
           </motion.h1>
 
           <motion.p
@@ -85,9 +85,9 @@ export default function Hero() {
             animate="visible"
             custom={0.45}
           >
-            A passionate developer crafting digital experiences one line of code
-            at a time. With a blend of creativity and precision, I transform
-            ideas into elegant solutions that leave a lasting impact.
+            I'm Olivier — a product engineer who partners with founders and
+            teams to turn early ideas into software people actually use. Four
+            years of shipping full-stack products across web and mobile.
           </motion.p>
 
           <motion.div
@@ -98,7 +98,19 @@ export default function Hero() {
             custom={0.6}
           >
             <Button size="lg" onClick={handleGetInTouch}>
-              Let's talk
+              Start a project <ArrowUpRight />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() =>
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              View projects
+              <ArrowDown />
             </Button>
           </motion.div>
         </div>

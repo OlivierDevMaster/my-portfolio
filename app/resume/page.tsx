@@ -1,24 +1,29 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { BriefcaseBusiness, FileText, GraduationCap } from "lucide-react";
+import { ArrowDown } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Resume — Olivier Rasolomanana",
+  description:
+    "Experience, judgment, and technical range Olivier Rasolomanana brings to teams turning product ideas into usable software.",
+};
 
 const experiences = [
   {
+    period: "2023 — Present",
     company: "Independent Product Builds",
     role: "Product Engineer",
-    period: "2023 - Present",
     achievements: [
       "Turned discovery, booking, and operations ideas into usable web and mobile products.",
       "Shaped interfaces, APIs, and data flows around real product behavior.",
-      "Worked with founders and teams to clarify scope before writing code.",
+      "Partnered with founders to clarify scope before writing code.",
     ],
   },
   {
+    period: "2022 — Present",
     company: "Freelance Collaborations",
     role: "Product Engineer",
-    period: "2022 - Present",
     achievements: [
       "Delivered responsive interfaces with React, Next.js, TailwindCSS, and Flutter.",
       "Connected Laravel, Node.js, REST APIs, and SQL workflows into product features.",
@@ -40,85 +45,123 @@ const certifications = [
 
 export default function ResumePage() {
   return (
-    <div>
+    <div className="bg-white text-neutral-950">
       <Navbar />
 
-      <main className="px-5 pt-32 md:px-10">
-        <section className="container mx-auto max-w-5xl text-center">
-          <p className="text-sm font-medium uppercase tracking-[0.45em] text-gray-400">
-            Resume
+      <main className="px-5 md:px-10">
+        {/* HERO */}
+        <section className="container mx-auto border-b border-gray-200 pb-16 pt-32 md:pb-24 md:pt-40">
+          <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
+            (—) Resume
           </p>
-          <h1 className="mt-5 text-5xl font-black leading-none tracking-[-0.06em] text-gray-950 md:text-7xl">
-            Experience shaped by product delivery.
+          <h1 className="max-w-5xl font-inter-tight text-5xl font-light leading-[0.95] tracking-tight text-balance md:text-8xl">
+            Experience shaped by{" "}
+            <em className="not-italic text-violet-600">delivery.</em>
           </h1>
-          <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-gray-500 md:text-xl">
-            A concise view of the work, judgment, and technical range I bring
-            to teams turning product ideas into usable software.
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-gray-500">
+            A concise view of the work, judgment, and technical range I bring to
+            teams turning product ideas into usable software.
           </p>
-          <div className="mt-8">
-            <Button asChild size="lg">
-              <Link href="/RASOLOMANANA_Herimanitra_Olivier.pdf" download>
-                <FileText aria-hidden="true" className="h-4 w-4 opacity-70" />
-                Download CV
-              </Link>
-            </Button>
+          <Link
+            href="/RASOLOMANANA_Herimanitra_Olivier.pdf"
+            download
+            className="group mt-10 inline-flex items-center gap-3 rounded-full bg-neutral-950 px-6 py-3.5 text-sm font-medium text-white transition hover:bg-neutral-800"
+          >
+            Download CV
+            <ArrowDown className="size-4 transition-transform group-hover:translate-y-0.5" />
+          </Link>
+        </section>
+
+        {/* EXPERIENCE */}
+        <section className="container mx-auto border-b border-gray-200 py-24 md:py-40">
+          <div className="mb-16 grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
+                (01) Experience
+              </p>
+            </div>
+            <div className="lg:col-span-8">
+              <h2 className="font-inter-tight text-4xl font-light leading-none tracking-tight text-balance md:text-6xl">
+                Work measured in{" "}
+                <em className="not-italic text-violet-600">shipped</em> product.
+              </h2>
+            </div>
           </div>
+
+          <ul className="divide-y divide-gray-200 border-y border-gray-200">
+            {experiences.map((experience) => (
+              <li
+                key={experience.company}
+                className="grid grid-cols-12 gap-4 py-8 md:py-10"
+              >
+                <div className="col-span-12 md:col-span-4">
+                  <div className="font-mono text-[10px] uppercase tracking-widest text-gray-400">
+                    {experience.period}
+                  </div>
+                  <h3 className="mt-3 font-inter-tight text-2xl font-light md:text-3xl">
+                    {experience.company}
+                  </h3>
+                  <p className="mt-1 text-sm text-violet-600">
+                    {experience.role}
+                  </p>
+                </div>
+                <ul className="col-span-12 space-y-3 text-sm leading-relaxed text-gray-500 md:col-span-8">
+                  {experience.achievements.map((achievement) => (
+                    <li key={achievement} className="flex gap-3">
+                      <span className="mt-2 size-1 shrink-0 rounded-full bg-violet-600/60" />
+                      {achievement}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
         </section>
 
-        <section className="container mx-auto grid gap-4 pt-28">
-          {experiences.map((experience) => (
-            <article
-              key={experience.company}
-              className="group relative grid gap-6 overflow-hidden rounded-3xl border border-black/5 bg-gray-50 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-xl hover:shadow-black/5 md:grid-cols-[260px_1fr]"
-            >
-              <BriefcaseBusiness
-                aria-hidden="true"
-                className="absolute right-6 top-6 h-12 w-12 text-gray-950/10 transition-colors group-hover:text-violet-600/25"
-              />
-              <div>
-                <Badge variant="secondary">{experience.period}</Badge>
-                <h2 className="mt-4 text-2xl font-bold tracking-[-0.04em]">
-                  {experience.company}
-                </h2>
-                <p className="mt-2 text-violet-600">{experience.role}</p>
-              </div>
-              <ul className="space-y-3 text-gray-600">
-                {experience.achievements.map((achievement) => (
-                  <li key={achievement}>{achievement}</li>
+        {/* EDUCATION + PRACTICE */}
+        <section className="container mx-auto py-24 md:py-40">
+          <div className="mb-16 grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
+                (02) Foundation
+              </p>
+            </div>
+            <div className="lg:col-span-8">
+              <h2 className="font-inter-tight text-4xl font-light leading-none tracking-tight text-balance md:text-6xl">
+                Learning that stays{" "}
+                <em className="not-italic text-violet-600">practical.</em>
+              </h2>
+            </div>
+          </div>
+
+          <div className="grid gap-px bg-gray-200 md:grid-cols-2">
+            <div className="bg-white p-8 md:p-10">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-gray-400">
+                Education
+              </p>
+              <div className="mt-6 space-y-4 text-sm leading-relaxed text-gray-500">
+                {education.map((item) => (
+                  <p key={item}>{item}</p>
                 ))}
-              </ul>
-            </article>
-          ))}
-        </section>
-
-        <section className="container mx-auto grid gap-4 pt-10 md:grid-cols-2">
-          <article className="relative overflow-hidden rounded-3xl bg-neutral-950 p-8 text-white">
-            <GraduationCap
-              aria-hidden="true"
-              className="absolute right-6 top-6 h-12 w-12 text-white/10"
-            />
-            <p className="text-sm font-medium uppercase tracking-[0.45em] text-gray-500">
-              Education
-            </p>
-            <div className="mt-6 space-y-4 text-gray-300">
-              {education.map((item) => (
-                <p key={item}>{item}</p>
-              ))}
+              </div>
             </div>
-          </article>
 
-          <article className="rounded-3xl bg-gray-50 p-8 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-xl hover:shadow-black/5">
-            <p className="text-sm font-medium uppercase tracking-[0.45em] text-gray-400">
-              Practice
-            </p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              {certifications.map((certification) => (
-                <Badge key={certification} variant="secondary">
-                  {certification}
-                </Badge>
-              ))}
+            <div className="bg-white p-8 md:p-10">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-gray-400">
+                Practice
+              </p>
+              <div className="mt-6 flex flex-wrap gap-1.5 font-mono text-[10px] uppercase tracking-wider text-gray-400">
+                {certifications.map((certification) => (
+                  <span
+                    key={certification}
+                    className="rounded-full border border-gray-200 px-2 py-0.5"
+                  >
+                    {certification}
+                  </span>
+                ))}
+              </div>
             </div>
-          </article>
+          </div>
         </section>
       </main>
     </div>

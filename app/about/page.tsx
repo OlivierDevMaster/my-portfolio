@@ -1,12 +1,29 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
-import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
-import { Boxes, Code2, Lightbulb, Rocket, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "About — Olivier Rasolomanana",
+  description:
+    "Olivier Rasolomanana is a product engineer who turns early ideas into clear, usable web and mobile software.",
+};
 
 const principles = [
-  "Turn unclear ideas into product decisions people can use.",
-  "Keep systems simple enough to evolve after launch.",
-  "Move steadily without losing the reason behind the work.",
+  {
+    n: "01",
+    title: "Ideas into decisions",
+    body: "I turn unclear ideas into product decisions people can actually use and build on.",
+  },
+  {
+    n: "02",
+    title: "Simple enough to evolve",
+    body: "I keep systems simple enough to keep changing after launch, not just to ship once.",
+  },
+  {
+    n: "03",
+    title: "Steady, with intent",
+    body: "I move steadily without losing the reason behind the work or the people it serves.",
+  },
 ];
 
 const skillGroups = [
@@ -28,207 +45,194 @@ const skillGroups = [
   },
 ];
 
-const principleIcons = [Lightbulb, Boxes, Code2];
-
 const milestones = [
   {
     year: "2026",
-    period: "Today",
+    tag: "Today",
     title: "Focused on product engineering",
     description:
       "Building scalable web and mobile systems with clearer product judgment, stronger architecture, and delivery habits that keep teams moving.",
-    tags: ["Product Engineering", "System Design", "Next.js"],
-    icon: Boxes,
-    featured: true,
+    stack: ["Product", "System Design", "Next.js"],
   },
   {
     year: "2025",
-    period: "Operations",
+    tag: "Operations",
     title: "Expanded restaurant management tools",
     description:
-      "Built Fedhubs Pro into a focused operations platform for restaurants to manage menus, reservations, and customer loyalty from one workspace.",
-    tags: ["Flutter", "Laravel", "Operations"],
-    icon: Code2,
-    featured: false,
+      "Grew Fedhubs Pro into a focused operations platform for restaurants to manage menus, reservations, and customer loyalty from one workspace.",
+    stack: ["Flutter", "Laravel", "Ops"],
   },
   {
     year: "2024",
-    period: "Launch",
+    tag: "Launch",
     title: "Built and launched Fedhubs",
     description:
-      "Created a restaurant discovery and reservation experience that helped turn search, comparison, and booking into one usable flow.",
-    tags: ["React", "Mobile", "Reservations"],
-    icon: Sparkles,
-    featured: true,
+      "Created a restaurant discovery and reservation experience that turned search, comparison, and booking into one usable flow.",
+    stack: ["React", "Mobile", "Booking"],
   },
   {
     year: "2023",
-    period: "Foundation",
-    title: "Started the professional development journey",
+    tag: "Foundation",
+    title: "Started the professional journey",
     description:
       "Built a practical engineering foundation across frontend, backend, mobile, and data workflows while shipping real product surfaces.",
-    tags: ["TypeScript", "PHP", "Databases"],
-    icon: Rocket,
-    featured: false,
+    stack: ["TypeScript", "PHP", "Databases"],
   },
 ];
 
 export default function AboutPage() {
   return (
-    <div>
+    <div className="bg-white text-neutral-950">
       <Navbar />
 
-      <main className="px-5 pt-32 md:px-10">
-        <section className="container mx-auto max-w-5xl text-center">
-          <p className="text-sm font-medium uppercase tracking-[0.45em] text-gray-400">
-            About
+      <main className="px-5 md:px-10">
+        {/* HERO */}
+        <section className="container mx-auto border-b border-gray-200 pb-16 pt-32 md:pb-24 md:pt-40">
+          <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
+            (—) About · Product Engineer
           </p>
-          <h1 className="mt-5 text-5xl font-black leading-none tracking-[-0.06em] text-gray-950 md:text-7xl">
-            I build the bridge between product intent and working software.
+          <h1 className="max-w-5xl font-inter-tight text-5xl font-light leading-[0.95] tracking-tight text-balance md:text-8xl">
+            The bridge between product{" "}
+            <em className="not-italic text-violet-600">intent</em> and working
+            software.
           </h1>
-          <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-gray-500 md:text-xl">
-            I am Olivier, a product-minded engineer focused on turning early
-            ideas into clear, useful web and mobile products. I care about
-            judgment, execution, and software that remains easy to improve.
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-gray-500">
+            I'm Olivier — a product-minded engineer who turns early ideas into
+            clear, useful web and mobile products. I care about judgment,
+            execution, and software that stays easy to improve.
           </p>
         </section>
 
-        <section className="container mx-auto grid gap-4 pt-28 md:grid-cols-3">
-          {principles.map((principle, index) => {
-            const PrincipleIcon = principleIcons[index];
-
-            return (
-            <article
-              key={principle}
-              className="group relative overflow-hidden rounded-3xl border border-black/5 bg-white/70 p-8 shadow-black/5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
-            >
-              <PrincipleIcon
-                aria-hidden="true"
-                className="absolute right-5 top-5 h-12 w-12 text-gray-950/10 transition-colors group-hover:text-violet-600/25"
-              />
-              <p className="text-2xl font-bold leading-tight tracking-[-0.04em] text-gray-950">
-                {principle}
+        {/* PRINCIPLES */}
+        <section className="container mx-auto border-b border-gray-200 py-24 md:py-40">
+          <div className="mb-20 grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
+                (01) How I work
               </p>
-            </article>
-            );
-          })}
-        </section>
-
-        <section className="container mx-auto grid gap-10 pt-28 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <p className="text-sm font-medium uppercase tracking-[0.45em] text-gray-400">
-              Skills
-            </p>
-            <h2 className="mt-5 text-4xl font-black tracking-[-0.06em] md:text-6xl">
-              Tools chosen for product delivery, not decoration.
-            </h2>
+            </div>
+            <div className="lg:col-span-8">
+              <h2 className="font-inter-tight text-4xl font-light leading-none tracking-tight text-balance md:text-6xl">
+                A few <em className="not-italic text-violet-600">principles</em>{" "}
+                behind the work.
+              </h2>
+            </div>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            {skillGroups.map((group) => (
-              <article
-                key={group.title}
-                className="rounded-3xl bg-gray-50 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-xl hover:shadow-black/5"
+          <div className="grid gap-px bg-gray-200 md:grid-cols-3">
+            {principles.map((principle) => (
+              <div
+                key={principle.n}
+                className="group bg-white p-8 transition-colors hover:bg-gray-50 md:p-10"
               >
-                <h3 className="text-2xl font-bold tracking-[-0.04em]">
-                  {group.title}
-                </h3>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
-                    <Badge key={skill} variant="secondary">
-                      {skill}
-                    </Badge>
-                  ))}
+                <div className="mb-16 flex items-center justify-between">
+                  <span className="font-mono text-xs text-gray-400">
+                    {principle.n}
+                  </span>
+                  <span className="size-1.5 rounded-full bg-violet-600/60" />
                 </div>
-              </article>
+                <h3 className="mb-4 font-inter-tight text-2xl font-light md:text-3xl">
+                  {principle.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-gray-500">
+                  {principle.body}
+                </p>
+              </div>
             ))}
           </div>
         </section>
 
-        <section className="container mx-auto pt-28">
-          <div className="max-w-3xl">
-            <p className="text-sm font-medium uppercase tracking-[0.45em] text-gray-400">
-              Timeline
-            </p>
-            <h2 className="mt-5 text-4xl font-black tracking-[-0.06em] md:text-6xl">
-              A product engineering journey, not just a list of roles.
-            </h2>
-          </div>
-
-          <div className="relative mt-12">
-            <div
-              aria-hidden="true"
-              className="absolute bottom-6 left-4 top-6 w-px bg-gray-200 md:left-[7rem]"
-            />
-
-            <div className="grid gap-8">
-              {milestones.map((milestone) => {
-                const MilestoneIcon = milestone.icon;
-
-                return (
-                  <article
-                    key={milestone.title}
-                    className="relative grid gap-4 md:grid-cols-[96px_40px_1fr] md:gap-6"
-                  >
-                    <p className="pl-14 text-5xl font-black leading-none tracking-[-0.08em] text-gray-200 md:pl-0 md:text-right">
-                      {milestone.year}
-                    </p>
-
-                    <div className="absolute left-0 top-1 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-violet-600 text-white shadow-lg shadow-violet-600/20 md:static md:mt-1">
-                      <MilestoneIcon aria-hidden="true" className="h-4 w-4" />
-                    </div>
-
-                    <div
-                      className={cn(
-                        "group ml-14 rounded-3xl border border-black/5 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-black/5 md:ml-0",
-                        milestone.featured
-                          ? "bg-neutral-950 text-white md:p-8"
-                          : "bg-gray-50 hover:bg-white"
-                      )}
-                    >
-                      <span
-                        className={cn(
-                          "inline-flex rounded-full px-3 py-1 text-sm font-medium",
-                          milestone.featured
-                            ? "bg-white/10 text-violet-200"
-                            : "bg-violet-100 text-violet-700"
-                        )}
-                      >
-                        {milestone.period}
-                      </span>
-
-                      <h3 className="mt-5 text-2xl font-bold tracking-[-0.04em] md:text-3xl">
-                        {milestone.title}
-                      </h3>
-                      <p
-                        className={cn(
-                          "mt-3 leading-7",
-                          milestone.featured ? "text-gray-300" : "text-gray-600"
-                        )}
-                      >
-                        {milestone.description}
-                      </p>
-
-                      <div className="mt-6 flex flex-wrap gap-2">
-                        {milestone.tags.map((tag) => (
-                          <Badge
-                            key={tag}
-                            variant="secondary"
-                            className={cn(
-                              milestone.featured &&
-                                "bg-white/10 text-white hover:bg-white/15"
-                            )}
-                          >
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </article>
-                );
-              })}
+        {/* SKILLS */}
+        <section className="container mx-auto border-b border-gray-200 py-24 md:py-40">
+          <div className="mb-16 grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
+                (02) Toolkit
+              </p>
+            </div>
+            <div className="lg:col-span-8">
+              <h2 className="font-inter-tight text-4xl font-light leading-none tracking-tight text-balance md:text-6xl">
+                Tools chosen for{" "}
+                <em className="not-italic text-violet-600">delivery</em>, not
+                decoration.
+              </h2>
             </div>
           </div>
+
+          <div className="grid gap-px bg-gray-200 md:grid-cols-2">
+            {skillGroups.map((group) => (
+              <div key={group.title} className="bg-white p-8 md:p-10">
+                <h3 className="font-inter-tight text-2xl font-light">
+                  {group.title}
+                </h3>
+                <div className="mt-5 flex flex-wrap gap-1.5 font-mono text-[10px] uppercase tracking-wider text-gray-400">
+                  {group.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full border border-gray-200 px-2 py-0.5"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* TIMELINE */}
+        <section className="container mx-auto py-24 md:py-40">
+          <div className="mb-16 grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
+                (03) Timeline
+              </p>
+            </div>
+            <div className="lg:col-span-8">
+              <h2 className="font-inter-tight text-4xl font-light leading-none tracking-tight text-balance md:text-6xl">
+                A product engineering{" "}
+                <em className="not-italic text-violet-600">journey</em>, not a
+                list of roles.
+              </h2>
+            </div>
+          </div>
+
+          <ul className="divide-y divide-gray-200 border-y border-gray-200">
+            {milestones.map((milestone) => (
+              <li
+                key={milestone.year}
+                className="grid grid-cols-12 items-baseline gap-4 py-8 md:py-10"
+              >
+                <div className="col-span-12 md:col-span-2">
+                  <div className="font-inter-tight text-4xl font-light text-violet-600 md:text-5xl">
+                    {milestone.year}
+                  </div>
+                  <div className="mt-2 font-mono text-[10px] uppercase tracking-widest text-gray-400">
+                    {milestone.tag}
+                  </div>
+                </div>
+                <div className="col-span-12 md:col-span-5">
+                  <h3 className="font-inter-tight text-2xl font-light md:text-3xl">
+                    {milestone.title}
+                  </h3>
+                </div>
+                <div className="col-span-12 text-sm leading-relaxed text-gray-500 md:col-span-4">
+                  {milestone.description}
+                  <div className="mt-3 flex flex-wrap gap-1.5 font-mono text-[10px] uppercase tracking-wider text-gray-400">
+                    {milestone.stack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-full border border-gray-200 px-2 py-0.5"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <ArrowUpRight className="col-span-12 size-6 text-gray-300 md:col-span-1 md:justify-self-end" />
+              </li>
+            ))}
+          </ul>
         </section>
       </main>
     </div>

@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
-import { Badge } from "@/components/ui/badge";
 import ContactForm from "./contact-form";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Twitter } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Contact — Olivier Rasolomanana",
+  description:
+    "Start a conversation about the product, platform, or workflow you want to build. Open to focused builds and product engineering roles.",
+};
 
 const socialLinks = [
   {
@@ -16,69 +22,72 @@ const socialLinks = [
     icon: Linkedin,
   },
   {
-    label: "X/Twitter",
+    label: "X / Twitter",
     href: "https://x.com/OlivierFullDev",
     icon: Twitter,
   },
 ];
 
+const availability = ["Freelance builds", "Product teams", "Remote work"];
+
 export default function ContactPage() {
   return (
-    <div>
+    <div className="bg-white text-neutral-950">
       <Navbar />
 
-      <main className="px-5 pt-32 md:px-10">
-        <section className="container mx-auto grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <main className="px-5 md:px-10">
+        <section className="container mx-auto grid gap-16 pb-24 pt-32 md:pt-40 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-24">
+          {/* LEFT */}
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.45em] text-gray-400">
-              Contact
+            <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
+              (—) Contact
             </p>
-            <h1 className="mt-5 text-5xl font-black leading-none tracking-[-0.06em] text-gray-950 md:text-7xl">
-              Bring me a product problem worth solving.
+            <h1 className="font-inter-tight text-5xl font-light leading-[0.95] tracking-tight text-balance md:text-7xl">
+              Bring me a{" "}
+              <em className="not-italic text-violet-600">problem</em> worth
+              solving.
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-gray-500 md:text-xl">
-              Send a short note about the product, platform, or workflow you
-              want to improve. I am open to focused builds and product
-              engineering roles.
+            <p className="mt-8 max-w-md text-lg leading-relaxed text-gray-500">
+              Send a short note about the product, platform, or workflow you want
+              to improve. I'm open to focused builds and product engineering
+              roles.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-2">
-              <Badge className="bg-gray-100 text-gray-800">Freelance builds</Badge>
-              <Badge className="bg-gray-100 text-gray-800">Product teams</Badge>
-              <Badge className="bg-gray-100 text-gray-800">Remote work</Badge>
+            <div className="mt-8 flex flex-wrap gap-1.5 font-mono text-[10px] uppercase tracking-wider text-gray-400">
+              {availability.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-gray-200 px-3 py-1"
+                >
+                  {item}
+                </span>
+              ))}
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10 divide-y divide-gray-200 border-y border-gray-200">
               {socialLinks.map((social) => {
                 const SocialIcon = social.icon;
 
                 return (
-                <Link
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border px-5 py-3 font-bold transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-950 hover:text-white hover:shadow-xl hover:shadow-black/10"
-                >
-                  <SocialIcon aria-hidden="true" className="h-4 w-4 opacity-70" />
-                  {social.label}
-                </Link>
+                  <Link
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group flex items-center justify-between py-4 transition-colors hover:text-violet-600"
+                  >
+                    <span className="flex items-center gap-3">
+                      <SocialIcon aria-hidden="true" className="size-4" />
+                      {social.label}
+                    </span>
+                    <ArrowUpRight className="size-4 text-gray-400 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-violet-600" />
+                  </Link>
                 );
               })}
             </div>
-
-            <div className="mt-10 rounded-3xl bg-neutral-950 p-6 text-white">
-              <Mail aria-hidden="true" className="h-8 w-8 text-violet-300/70" />
-              <p className="mt-5 text-2xl font-black tracking-[-0.05em]">
-                Clear context makes better work.
-              </p>
-              <p className="mt-3 leading-7 text-gray-400">
-                Share what you are building, where it is stuck, and what a good
-                outcome would look like.
-              </p>
-            </div>
           </div>
 
+          {/* RIGHT */}
           <ContactForm />
         </section>
       </main>

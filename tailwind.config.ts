@@ -9,6 +9,18 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			'inter-tight': ['var(--font-inter-tight)', 'sans-serif']
+  		},
+  		keyframes: {
+  			marquee: {
+  				'0%': { transform: 'translateX(0)' },
+  				'100%': { transform: 'translateX(-50%)' }
+  			}
+  		},
+  		animation: {
+  			marquee: 'marquee 32s linear infinite'
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
-import { Badge } from "@/components/ui/badge";
-import { Layers, Sparkles, Target } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Notes — Olivier Rasolomanana",
+  description:
+    "Short essays on product judgment, implementation tradeoffs, AI features, and systems that stay understandable.",
+};
 
 const articles = [
   {
@@ -8,102 +14,83 @@ const articles = [
     category: "Product Engineering",
     description:
       "How clear constraints, simple interfaces, and thoughtful defaults keep products moving after launch.",
-    readTime: "5 min read",
+    readTime: "5 min",
   },
   {
     title: "From Prototype to Production",
     category: "System Design",
     description:
       "The decisions that help early ideas become dependable products without overthinking the system.",
-    readTime: "7 min read",
+    readTime: "7 min",
   },
   {
     title: "Where AI Actually Helps in SaaS Products",
     category: "AI Integration",
     description:
       "A grounded look at AI features that improve workflows without reducing trust.",
-    readTime: "6 min read",
+    readTime: "6 min",
   },
   {
     title: "Building Better Full-Stack Feedback Loops",
     category: "Software Development",
     description:
       "Why short feedback loops, clear interfaces, and calm releases make better products.",
-    readTime: "4 min read",
+    readTime: "4 min",
   },
 ];
 
-const articleImages = [
-  "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=480&q=80",
-  "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=480&q=80",
-  "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=480&q=80",
-  "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=480&q=80",
-];
-
-const getArticleIcon = (category: string) => {
-  if (category.includes("AI")) return Sparkles;
-  if (category.includes("System")) return Layers;
-  return Target;
-};
-
 export default function BlogPage() {
   return (
-    <div>
+    <div className="bg-white text-neutral-950">
       <Navbar />
 
-      <main className="px-5 pt-32 md:px-10">
-        <section className="container mx-auto max-w-5xl text-center">
-          <p className="text-sm font-medium uppercase tracking-[0.45em] text-gray-400">
-            Articles
+      <main className="px-5 md:px-10">
+        {/* HERO */}
+        <section className="container mx-auto border-b border-gray-200 pb-16 pt-32 md:pb-24 md:pt-40">
+          <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
+            (—) Notes · {articles.length} essays
           </p>
-          <h1 className="mt-5 text-5xl font-black leading-none tracking-[-0.06em] text-gray-950 md:text-7xl">
-            Notes from building products in public.
+          <h1 className="max-w-5xl font-inter-tight text-5xl font-light leading-[0.95] tracking-tight text-balance md:text-8xl">
+            Building products,{" "}
+            <em className="not-italic text-violet-600">in public.</em>
           </h1>
-          <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-gray-500 md:text-xl">
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-gray-500">
             Short essays on product judgment, implementation tradeoffs, AI
             features, and systems that stay understandable.
           </p>
         </section>
 
-        <section className="container mx-auto grid gap-5 pt-16 md:grid-cols-2">
-          {articles.map((article, index) => {
-            const ArticleIcon = getArticleIcon(article.category);
-
-            return (
-              <article
-                key={article.title}
-                className="group cursor-pointer overflow-hidden rounded-3xl border border-black/5 bg-gray-50 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-xl hover:shadow-black/5"
-              >
-                <div
-                  aria-hidden="true"
-                  className="h-44 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.02]"
-                  style={{
-                    backgroundImage: `linear-gradient(to bottom, transparent, rgb(0 0 0 / 0.2)), url('${articleImages[index]}')`,
-                  }}
-                />
-                <div className="p-6">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <Badge variant="secondary" className="gap-2 bg-white">
-                      <ArticleIcon
-                        aria-hidden="true"
-                        className="h-3.5 w-3.5 text-violet-600/60"
-                      />
+        {/* LIST */}
+        <section className="container mx-auto py-16 md:py-24">
+          <ul className="divide-y divide-gray-200 border-y border-gray-200">
+            {articles.map((article, index) => (
+              <li key={article.title}>
+                <a
+                  href="#"
+                  className="group -mx-5 grid grid-cols-12 items-baseline gap-4 px-5 py-8 transition-colors hover:bg-gray-50 md:-mx-10 md:px-10 md:py-10"
+                >
+                  <span className="col-span-2 pt-2 font-mono text-xs text-gray-400 md:col-span-1">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div className="col-span-10 md:col-span-5">
+                    <div className="mb-2 font-mono text-[10px] uppercase tracking-widest text-gray-400">
                       {article.category}
-                    </Badge>
-                    <span className="text-sm text-gray-500">
-                      {article.readTime}
-                    </span>
+                    </div>
+                    <h2 className="font-inter-tight text-2xl font-light transition-colors group-hover:text-violet-600 md:text-4xl">
+                      {article.title}
+                    </h2>
                   </div>
-                  <h2 className="mt-5 text-3xl font-black tracking-[-0.06em] text-gray-950">
-                    {article.title}
-                  </h2>
-                  <p className="mt-4 leading-7 text-gray-600">
+                  <div className="col-span-12 text-sm leading-relaxed text-gray-500 md:col-span-4">
                     {article.description}
-                  </p>
-                </div>
-              </article>
-            );
-          })}
+                  </div>
+                  <div className="col-span-10 pt-1 font-mono text-[10px] uppercase tracking-widest text-gray-400 md:col-span-1">
+                    {article.readTime}
+                  </div>
+                  <ArrowUpRight className="col-span-2 size-6 justify-self-end text-gray-400 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-violet-600 md:col-span-1" />
+                </a>
+              </li>
+            ))}
+          </ul>
         </section>
       </main>
     </div>
