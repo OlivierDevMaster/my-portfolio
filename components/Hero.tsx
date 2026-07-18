@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, type Variants } from "motion/react";
 import { Button } from "./ui/button";
 import { handleGetInTouch } from "@/utils/functions";
-import { ArrowDown, ArrowUpRight, ArrowUpRightSquare } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
