@@ -111,12 +111,12 @@ export default function Home() {
 
         {/* STACK MARQUEE */}
         <section className="mt-10 overflow-hidden border-y border-gray-200">
-          <div className="flex w-max animate-marquee gap-14 whitespace-nowrap py-6">
+          <div className="flex w-max animate-marquee gap-14 whitespace-nowrap py-3 md:py-6">
             {[...expertiseTechStack, ...expertiseTechStack].map(
               (tech, index) => (
                 <span
                   key={`${tech}-${index}`}
-                  className="flex items-center gap-14 font-inter-tight text-3xl font-light italic text-gray-400 md:text-4xl"
+                  className="flex items-center gap-14 font-inter-tight text-lg sm:text-3xl font-light italic text-gray-400 md:text-4xl"
                 >
                   {tech}
                   <span className="size-1.5 shrink-0 rounded-full bg-violet-600/60" />

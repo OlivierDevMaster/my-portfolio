@@ -47,7 +47,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative isolate flex flex-col overflow-hidden pb-10 pt-32 md:min-h-[720px] md:justify-center md:overflow-visible md:py-4 md:pt-6 container mx-auto">
+    <section className="relative isolate flex flex-col overflow-hidden pb-10 pt-16 md:min-h-[720px] md:justify-center md:overflow-visible md:py-4 md:pt-6 container mx-auto">
       <p
         aria-hidden="true"
         className="pointer-events-none absolute left-8 top-24 -z-10 hidden select-none text-[12rem] font-bold leading-none tracking-[-0.08em] text-gray-100/60 md:block lg:text-[17rem]"
@@ -57,25 +57,20 @@ export default function Hero() {
 
       <div className="relative grid flex-1 items-end gap-8 md:items-center md:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.85fr)] md:gap-10">
         <div className="relative z-10 mt-[200px] md:mt-0 order-2 max-w-2xl md:order-1">
-          <motion.p
-            className="mb-5 font-medium tracking-[0.45em] text-gray-600"
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0.15}
-          >
-            Available for select engagements — 2026
-          </motion.p>
-
           <motion.h1
-            className="font-inter-tight font-light text-5xl leading-[0.95]  text-gray-950 md:text-6xl lg:text-8xl"
+            className="max-w-full font-inter-tight text-[clamp(2.75rem,11vw,3.25rem)] font-light leading-[1.2] text-gray-950 md:text-6xl lg:text-8xl"
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={0.3}
           >
-            <span className="text-violet-600">Design. Code.</span>{" "}
-            <span className="italic">Ship</span> what matters.
+            <span className="text-violet-600">
+              Design.
+              <span className="">Code.</span>
+            </span>
+            <br />
+            <span className="italic">Ship</span> what{" "}
+            <br className="md:hidden" /> matters.
           </motion.h1>
 
           <motion.p
@@ -91,7 +86,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.div
-            className="mt-7 flex items-center gap-5"
+            className="mt-7 flex flex-col md:flex-row md:items-center gap-5"
             variants={fadeUp}
             initial="hidden"
             animate="visible"
