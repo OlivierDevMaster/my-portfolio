@@ -1,0 +1,70 @@
+{
+  "metadata": {
+    "title": "Resume — Olivier Rasolomanana",
+    "description": "Experience, judgment, and technical range Olivier Rasolomanana brings to teams turning product ideas into usable software."
+  },
+  "eyebrow": "(—) Resume",
+  "title": "Experience shaped by <em>delivery.</em>",
+  "intro": "A concise view of the work, judgment, and technical range I bring to teams turning product ideas into usable software.",
+  "downloadCv": "Download CV (PDF)",
+  "getInTouch": "Get in touch",
+  "experience": {
+    "eyebrow": "(01) Experience",
+    "title": "Work measured in <em>shipped</em> product.",
+    "items": [
+      {
+        "period": "2025 — Present",
+        "company": "Independent",
+        "role": "Product Engineer",
+        "achievements": [
+          "Building four live products for founders: Gando (fintech), Cléo Network (real-estate marketplace), Kididraw (edtech) and Mallow (iOS booking app).",
+          "Own each product end to end: scope, data model, web and mobile apps, payments and launch.",
+          "Work on Next.js, React Native (Expo), Supabase and Stripe, with AI coding agents in the loop and the critical rules kept in my hands."
+        ]
+      },
+      {
+        "period": "Jul 2023 — Jan 2025",
+        "company": "Fedhubs",
+        "role": "Full-Stack Developer",
+        "achievements": [
+          "Designed and built a cross-platform Flutter app for discovering nearby restaurants and booking online.",
+          "Built the restaurant management platform: profiles, reservations and loyalty cards.",
+          "Delivered an internal admin app for the Fedhubs team using a low-code tool."
+        ]
+      },
+      {
+        "period": "Mar 2023 — Jul 2023",
+        "company": "Fedhubs",
+        "role": "Front-End Developer Intern",
+        "achievements": [
+          "Built a web app to improve the online visibility of restaurants in Paris."
+        ]
+      },
+      {
+        "period": "2021 — 2023",
+        "company": "Freelance & personal projects",
+        "role": "Developer",
+        "achievements": [
+          "Delivered responsive interfaces and small product features with React, Next.js and Laravel.",
+          "Built Prompt AI, a platform to share and discover prompts for AI content generation (Next.js, MongoDB)."
+        ]
+      }
+    ]
+  },
+  "foundation": {
+    "eyebrow": "(02) Foundation",
+    "title": "Learning that stays <em>practical.</em>",
+    "educationLabel": "Education",
+    "practiceLabel": "Practice",
+    "education": [
+      "Licence in software engineering and databases — École Nationale d'Informatique (ENI), 2023 — 2025.",
+      "Finalist, ENI algorithm competition (2022) and ENI internal hackathon (2023).",
+      "Baccalauréat — Lycée Moderne Ampefiloha, 2020."
+    ],
+    "practice": [
+      "Full-Stack Web Development",
+      "Mobile Application Development",
+      "Product Engineering Practice"
+    ]
+  }
+}

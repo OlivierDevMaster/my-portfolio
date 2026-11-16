@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "title": "Contact — Olivier Rasolomanana",
+    "description": "Start a conversation about the product, platform, or workflow you want to build. Open to freelance builds and product engineering roles."
+  },
+  "eyebrow": "(—) Contact",
+  "title": "Bring me a <em>problem</em> worth solving.",
+  "intro": "Send a short note about the product, platform, or workflow you want to build or fix. Freelance build or full-time role, a few lines of context are enough to start.",
+  "availability": {
+    "freelance": "Freelance builds",
+    "fullTime": "Full-time product roles",
+    "remote": "Remote work"
+  },
+  "copyEmail": {
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "form": {
+    "eyebrow": "Start with context",
+    "title": "Tell me what should exist.",
+    "topicLegend": "I'm reaching out about",
+    "topics": {
+      "freelance": "Freelance build",
+      "fullTime": "Full-time role",
+      "other": "Something else"
+    },
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "you@company.com",
+    "message": "Message",
+    "messagePlaceholder": "What are you building, and where are you stuck?",
+    "submit": "Send message",
+    "subject": "{topic} — portfolio inquiry from {name}",
+    "hint": "Opens your email app with everything filled in.",
+    "sent": "Your email app should now be open with the message ready. Nothing happened? Write directly to <link>{email}</link>."
+  }
+}

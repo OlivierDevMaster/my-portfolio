@@ -1,4 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import type { Locale } from "@/i18n/routing";
 import type { Project } from "@/lib/projects";
 
 type ProjectRowProps = {
@@ -8,7 +10,10 @@ type ProjectRowProps = {
 };
 
 export default function ProjectRow({ project, index }: ProjectRowProps) {
+  const t = useTranslations("common.project");
+  const locale = useLocale() as Locale;
   const numbered = index !== undefined;
+  const tag = project.tag[locale];
   const rowClass =
     "group -mx-5 grid grid-cols-12 items-baseline gap-x-4 gap-y-3 px-5 py-8 transition-colors md:-mx-10 md:gap-y-4 md:px-10 md:py-10";
 
@@ -25,14 +30,14 @@ export default function ProjectRow({ project, index }: ProjectRowProps) {
         }
       >
         <div className="mb-2 font-mono text-[11px] uppercase tracking-widest text-gray-500">
-          {project.year ? `${project.year} · ${project.tag}` : project.tag}
+          {project.year ? `${project.year} · ${tag}` : tag}
         </div>
         <h3 className="font-inter-tight text-3xl font-light transition-colors group-hover:text-violet-600 lg:text-4xl">
           {project.name}
         </h3>
       </div>
       <p className="col-span-12 text-sm leading-relaxed text-gray-600 md:col-span-5 lg:text-base">
-        {project.description}
+        {project.description[locale]}
       </p>
       <div className="col-span-8 flex flex-wrap gap-1.5 font-mono text-[11px] uppercase tracking-wider text-gray-500 md:col-span-2">
         {project.stack.map((tech) => (
@@ -47,14 +52,14 @@ export default function ProjectRow({ project, index }: ProjectRowProps) {
       <span className="col-span-4 justify-self-end whitespace-nowrap font-mono text-[11px] uppercase tracking-wider md:col-span-1">
         {project.url ? (
           <span className="inline-flex items-center gap-1 text-neutral-950 transition-colors group-hover:text-violet-600">
-            {project.linkLabel ?? "Visit"}
+            {project.linkLabel?.[locale] ?? t("visit")}
             <ArrowUpRight
               aria-hidden="true"
               className="size-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             />
           </span>
         ) : (
-          <span className="text-gray-500">Private</span>
+          <span className="text-gray-500">{t("private")}</span>
         )}
       </span>
     </>
@@ -72,7 +77,7 @@ export default function ProjectRow({ project, index }: ProjectRowProps) {
       className={`${rowClass} hover:bg-gray-50`}
     >
       {content}
-      <span className="sr-only">(opens in a new tab)</span>
+      <span className="sr-only">{t("opensInNewTab")}</span>
     </a>
   );
 }

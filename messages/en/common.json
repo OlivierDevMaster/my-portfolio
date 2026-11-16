@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "title": "Olivier Rasolomanana — Product Engineer",
+    "description": "Olivier Rasolomanana is a product engineer who helps founders and teams turn early ideas into web and mobile products people actually use.",
+    "ogDescription": "Full-stack product engineering across web and mobile, from first sketch to production."
+  },
+  "skipLink": "Skip to content",
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "resume": "Resume",
+    "blog": "Notes",
+    "contact": "Contact",
+    "mainLabel": "Main navigation",
+    "homeLabel": "Olivier Rasolomanana, home",
+    "role": "Product Engineer",
+    "letsTalk": "Let's talk",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menu": "Menu",
+    "close": "Close",
+    "downloadCv": "Download CV",
+    "language": "Language"
+  },
+  "footer": {
+    "tagline": "Product engineer · web & mobile.",
+    "navLabel": "Footer navigation"
+  },
+  "cta": {
+    "label": "(—) Next step",
+    "title": "Have something to <em>build?</em>",
+    "body": "Tell me what you're building and where it's stuck. A few lines are enough to start.",
+    "start": "Start a conversation",
+    "downloadCv": "Download CV"
+  },
+  "project": {
+    "visit": "Visit",
+    "private": "Private",
+    "opensInNewTab": "(opens in a new tab)"
+  },
+  "post": {
+    "minRead": "{minutes} min read",
+    "allNotes": "All notes",
+    "fromProject": "From the project",
+    "keepReading": "Keep reading",
+    "moreNotes": "More notes",
+    "cta": {
+      "title": "Building something with <em>similar stakes?</em>",
+      "body": "If your product handles money, personal data or a launch date that can't slip, tell me where it's stuck. A few lines are enough."
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "title": "Contact — Olivier Rasolomanana",
+    "description": "Lancez la conversation sur le produit, la plateforme ou le flux de travail que vous voulez construire. Ouvert aux missions en freelance et aux postes d’ingénieur produit."
+  },
+  "eyebrow": "(—) Contact",
+  "title": "Apportez-moi un <em>problème</em> à résoudre.",
+  "intro": "Envoyez-moi quelques lignes sur le produit, la plateforme ou le flux de travail que vous voulez construire ou corriger. Mission en freelance ou poste à temps plein : quelques lignes de contexte suffisent pour commencer.",
+  "availability": {
+    "freelance": "Missions en freelance",
+    "fullTime": "Postes à temps plein",
+    "remote": "Télétravail"
+  },
+  "copyEmail": {
+    "copy": "Copier",
+    "copied": "Copié"
+  },
+  "form": {
+    "eyebrow": "Commencez par le contexte",
+    "title": "Dites-moi ce qui doit voir le jour.",
+    "topicLegend": "Je vous écris au sujet de",
+    "topics": {
+      "freelance": "Mission en freelance",
+      "fullTime": "Poste à temps plein",
+      "other": "Autre chose"
+    },
+    "name": "Nom",
+    "namePlaceholder": "Votre nom",
+    "email": "E-mail",
+    "emailPlaceholder": "vous@entreprise.fr",
+    "message": "Message",
+    "messagePlaceholder": "Que construisez-vous, et où ça bloque ?",
+    "submit": "Envoyer le message",
+    "subject": "{topic} — demande de {name} via le portfolio",
+    "hint": "Ouvre votre client de messagerie avec le message déjà rempli.",
+    "sent": "Votre client de messagerie devrait maintenant être ouvert avec le message prêt. Rien ne s’est passé ? Écrivez directement à <link>{email}</link>."
+  }
+}

@@ -1,15 +1,17 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { CONTACT_EMAIL, navItems, socialLinks } from "@/lib/site";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const t = useTranslations("common");
 
   return (
     <footer className="px-5 pb-8 pt-16 md:px-10 md:pt-24">
       <div className="container mx-auto grid gap-8 border-t border-gray-200 pt-8 text-sm text-gray-500 md:grid-cols-[1fr_auto] md:items-start">
         <div>
           <p className="font-semibold text-gray-950">Olivier Rasolomanana</p>
-          <p className="mt-1">Product engineer · web &amp; mobile.</p>
+          <p className="mt-1">{t("footer.tagline")}</p>
           <a
             href={`mailto:${CONTACT_EMAIL}`}
             className="mt-2 inline-block py-3 text-gray-950 underline decoration-gray-300 underline-offset-4 transition hover:decoration-violet-600"
@@ -19,7 +21,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-6 md:items-end">
-          <nav aria-label="Footer navigation">
+          <nav aria-label={t("footer.navLabel")}>
             <ul className="flex flex-wrap gap-x-5 gap-y-1">
               {navItems
                 .filter((item) => item.href !== "/")
@@ -29,7 +31,7 @@ export default function Footer() {
                       href={item.href}
                       className="inline-block py-3 transition hover:text-gray-950"
                     >
-                      {item.label}
+                      {t(`nav.${item.key}`)}
                     </Link>
                   </li>
                 ))}

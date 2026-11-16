@@ -14,20 +14,23 @@ Do not run `npm run build` (production build) unless asked; verify changes with 
 
 ## Stack
 
-Next.js 14 App Router, React 18, TypeScript (strict), Tailwind CSS 3 with shadcn/ui (`new-york` style, see `components.json`), `motion` (Framer Motion, imported from `motion/react`) for animation, `lucide-react` for icons. Path alias `@/*` maps to the repo root.
+Next.js 14 App Router, React 18, TypeScript (strict), next-intl 4 (EN/FR), Tailwind CSS 3 with shadcn/ui (`new-york` style, see `components.json`), `motion` (Framer Motion, imported from `motion/react`) for animation, `lucide-react` for icons. Path alias `@/*` maps to the repo root.
 
 ## Architecture
 
 A static personal portfolio. There is no backend, database or API route; all content is hard-coded.
 
-- **Routes** live in `app/<route>/page.tsx` (home, about, projects, blog, resume, contact). Each page is a Server Component that exports its own `metadata` and holds its content as local constant arrays at the top of the file (e.g. the `projects: Project[]` list in `app/page.tsx`). To change site content, edit those arrays.
-- **Layout**: `app/layout.tsx` renders the skip link, `<Navbar />` and `<Footer />` for every page and sets up fonts. Pages render only `<main id="main">` content.
-- **Site-wide data** lives in `lib/site.ts`: `CONTACT_EMAIL`, `CV_PATH`, `navItems` (used by the navbar, mobile menu and footer) and `socialLinks`. Change these there, not in components.
+- **i18n (next-intl)**: English at `/`, French at `/fr/...` (`localePrefix: "as-needed"` in `i18n/routing.ts`). `middleware.ts` sends French browsers to `/fr` (URL, then `NEXT_LOCALE` cookie, then `Accept-Language`); every other language gets English. The navbar has an EN/FR switcher. Import `Link`, `usePathname`, `useRouter` from `@/i18n/navigation`, never from `next/link` / `next/navigation`.
+- **Routes** live in `app/[locale]/<route>/page.tsx` (home, about, projects, blog, blog/[slug], resume, contact). Each page is a Server Component that calls `setRequestLocale(locale)`, exports `generateMetadata`, and reads its text with `getTranslations("<page>")`. Client components use `useTranslations`.
+- **Translations** live in `messages/<locale>/<namespace>.json` (one file per page plus `common.json`), loaded in `i18n/request.ts`. Every key must exist in both `en` and `fr`. Violet `<em>` highlights in headings use `t.rich("key", { em })` with `<em>…</em>` in the message; arrays of items use `t.raw`. To change site content, edit the JSON in both languages.
+- **Layout**: `app/[locale]/layout.tsx` sets `<html lang>`, renders the skip link, `<Navbar />` and `<Footer />` inside `NextIntlClientProvider`, and sets up fonts. Pages render only `<main id="main">` content.
+- **Site-wide data** lives in `lib/site.ts`: `CONTACT_EMAIL`, `CV_PATH`, `navItems` (keys whose labels are in `common.json` under `nav`) and `socialLinks`. Change these there, not in components.
 - **Conversion path**: every "Let's talk / Start a project" CTA links to `/contact`. Pages end with the shared `components/contact-cta.tsx` (props let you change the label, title, body and the CV button).
 - **Client components** are kept few and isolated: `components/navbar.tsx` (desktop links, mobile full-screen menu, scroll lock, Escape to close), `components/hero.tsx` (scroll fade on the portrait; the entrance animation is CSS via `tailwindcss-animate` so the hero shows before hydration), `app/contact/contact-form.tsx` and `app/contact/copy-email.tsx`.
 - **No real form submission**: the contact form builds a `mailto:` link to `CONTACT_EMAIL`; the contact page also shows the address with a copy button as a fallback.
-- **Honest content states**: projects without a public URL render as non-clickable rows marked "Private"; notes/blog posts are not written yet and are shown as "In progress", not links. Don't add links or arrow icons to things that aren't clickable.
-- **Projects** are the exception to page-local content: `lib/projects.ts` holds `currentProjects` (home "Current work" and the projects page "Now" group) and `pastProjects` (projects page "Earlier"), both rendered by `components/project-row.tsx`. Projects with `url: null` show as "Private".
+- **Honest content states**: projects without a public URL render as non-clickable rows marked "Private". Only finished posts are listed; never add "In progress" placeholders. Don't add links or arrow icons to things that aren't clickable.
+- **Blog posts** are typed TS objects (`Post` in `lib/posts.ts`): English in `content/posts/<name>.ts`, French in `content/posts/fr/<name>.ts` with the same export name and slug. Register both in `postsByLocale`. Bodies are blocks (`p`, `h2`, `list`, `code`, `note`) rendered by `components/post-body.tsx`; rows by `components/post-row.tsx`.
+- **Projects**: `lib/projects.ts` holds `currentProjects` (home "Current work" and the projects page "Now" group) and `pastProjects` (projects page "Earlier"), both rendered by `components/project-row.tsx`. `tag`, `description` and `linkLabel` are `{ en, fr }` objects. Projects with `url: null` show as "Private".
 - **Shared code**: `lib/utils.ts` (`cn()` helper for shadcn), `components/ui/` (shadcn primitives: `button`, `badge`).
 - **Static assets** (project screenshots, `me.png`, the CV PDF `RASOLOMANANA_Herimanitra_Olivier.pdf`) are in `public/`.
 

@@ -1,34 +1,51 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactCta from "@/components/contact-cta";
 import ProjectRow from "@/components/project-row";
+import type { Locale } from "@/i18n/routing";
 import { currentProjects, pastProjects } from "@/lib/projects";
 
-export const metadata: Metadata = {
-  title: "Projects — Olivier Rasolomanana",
-  description:
-    "Products Olivier Rasolomanana is building now (Gando, Cléo Network, Kididraw, Mallow) and earlier work across web and mobile.",
-  openGraph: {
-    title: "Projects — Olivier Rasolomanana",
-    description:
-      "Fintech, marketplace, edtech and mobile products, built from idea to launch.",
-  },
-};
+type PageProps = { params: { locale: Locale } };
 
-const groups = [
-  {
-    label: "Now",
-    note: "In active development",
-    projects: currentProjects,
-  },
-  {
-    label: "Earlier",
-    note: "Shipped before",
-    projects: pastProjects,
-  },
-];
+const em = (chunks: React.ReactNode) => (
+  <em className="italic text-violet-600">{chunks}</em>
+);
 
-export default function ProjectsPage() {
+export async function generateMetadata({
+  params: { locale },
+}: PageProps): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "projects.metadata" });
+  return {
+    title: t("title"),
+    description: t("description"),
+    openGraph: {
+      title: t("ogTitle"),
+      description: t("ogDescription"),
+    },
+  };
+}
+
+export default async function ProjectsPage({
+  params: { locale },
+}: PageProps) {
+  setRequestLocale(locale);
+  const t = await getTranslations("projects");
   const total = currentProjects.length + pastProjects.length;
+
+  const groups = [
+    {
+      key: "now",
+      label: t("groups.now.label"),
+      note: t("groups.now.note"),
+      projects: currentProjects,
+    },
+    {
+      key: "earlier",
+      label: t("groups.earlier.label"),
+      note: t("groups.earlier.note"),
+      projects: pastProjects,
+    },
+  ];
 
   return (
     <div className="bg-white text-neutral-950">
@@ -36,15 +53,13 @@ export default function ProjectsPage() {
         {/* HERO */}
         <section className="container mx-auto border-b border-gray-200 pb-16 pt-32 md:pb-24 md:pt-40">
           <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
-            (—) Projects · {total} products
+            {t("eyebrow", { count: total })}
           </p>
           <h1 className="max-w-5xl font-inter-tight text-5xl font-light leading-[0.95] tracking-tight text-balance md:text-8xl">
-            Everything I've <em className="italic text-violet-600">shipped</em>,
-            in one place.
+            {t.rich("title", { em })}
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-gray-600">
-            Fintech, marketplaces, edtech and mobile apps. What I'm building
-            now comes first, earlier work below.
+            {t("intro")}
           </p>
         </section>
 
@@ -52,7 +67,7 @@ export default function ProjectsPage() {
         <section className="container mx-auto space-y-14 py-12 md:space-y-20 md:py-24">
           {groups.map((group) => (
             <div
-              key={group.label}
+              key={group.key}
               className="grid gap-4 lg:grid-cols-12 lg:gap-8"
             >
               <div className="lg:col-span-2">

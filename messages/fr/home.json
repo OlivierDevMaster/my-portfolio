@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "title": "Olivier Rasolomanana — Ingénieur produit",
+    "description": "Olivier Rasolomanana est un ingénieur produit qui aide les fondateurs et les équipes à transformer leurs idées en produits web et mobiles que les gens utilisent vraiment."
+  },
+  "hero": {
+    "watermark": "développeur",
+    "eyebrow": "(—) Disponible pour de nouvelles missions",
+    "titleAccent": "Concevoir. Coder.",
+    "titleRest": "<ship>Livrer</ship> ce qui compte.",
+    "intro": "Je suis Olivier, ingénieur produit. J’aide les fondateurs et les équipes à transformer leurs idées de départ en produits web et mobiles que les gens utilisent vraiment. Plus de cinq ans à développer des logiciels full-stack, de la première esquisse à la production.",
+    "portraitAlt": "Portrait d’Olivier Rasolomanana",
+    "startProject": "Démarrer un projet",
+    "seeWork": "Voir une sélection"
+  },
+  "stack": {
+    "label": "Technologies avec lesquelles je travaille"
+  },
+  "expertise": {
+    "label": "(01) Expertise",
+    "title": "Je conçois des systèmes qui transforment les <em>idées</em> en production.",
+    "intro": "Je travaille à la croisée de la réflexion produit et de l’ingénierie : j’aide les équipes à transformer leurs esquisses initiales en vrais logiciels qui tiennent la route en conditions réelles.",
+    "services": [
+      {
+        "n": "01",
+        "title": "Ingénierie produit",
+        "body": "Transformer une intention produit en logiciel fonctionnel, en rattachant chaque décision à la valeur pour l’utilisateur et à la clarté de la livraison."
+      },
+      {
+        "n": "02",
+        "title": "Développement full-stack",
+        "body": "Interface, backend et chaîne de mise en production qui font passer un produit du prototype à un usage réel et fiable."
+      },
+      {
+        "n": "03",
+        "title": "Conception de systèmes",
+        "body": "APIs, modèles de données et flux de travail pensés pour que les équipes puissent avancer sans friction à long terme."
+      }
+    ]
+  },
+  "work": {
+    "label": "(02) Projets en cours",
+    "title": "Les produits que je <em>construis</em> en ce moment.",
+    "viewAll": "Voir tous les projets"
+  },
+  "numbers": {
+    "label": "(—) En chiffres",
+    "title": "Un bilan discret de travail <em>livré</em>, mesuré en lancements plutôt qu’en effectifs.",
+    "stats": [
+      {
+        "n": "01",
+        "value": "5+",
+        "label": "Années à développer des logiciels"
+      },
+      {
+        "n": "02",
+        "value": "10",
+        "label": "Produits livrés, de l’idée au lancement"
+      },
+      {
+        "n": "03",
+        "value": "15",
+        "label": "Outils utilisés sur de vrais projets"
+      },
+      {
+        "n": "04",
+        "value": "∞",
+        "label": "Leçons tirées de l’itération"
+      }
+    ]
+  },
+  "writing": {
+    "label": "(03) Écrits",
+    "title": "Des notes tirées de <em>vrais</em> projets produit.",
+    "viewAll": "Toutes les notes"
+  },
+  "contact": {
+    "label": "(03) Contact",
+    "labelWithWriting": "(04) Contact",
+    "title": "Confiez-moi un <em>problème</em> qui en vaut la peine.",
+    "body": "Ouvert aux missions en freelance et aux postes d’ingénieur produit, avec des équipes qui veulent transformer leurs idées en logiciels clairs et utilisables."
+  }
+}

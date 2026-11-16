@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "title": "À propos — Olivier Rasolomanana",
+    "description": "Olivier Rasolomanana est un ingénieur produit qui transforme les idées naissantes en logiciels web et mobiles clairs et utilisables."
+  },
+  "eyebrow": "(—) À propos · Ingénieur produit",
+  "title": "Le pont entre l’<em>intention</em> produit et les logiciels qui fonctionnent.",
+  "intro": "Je suis Olivier — un ingénieur orienté produit qui transforme des idées naissantes en produits web et mobiles clairs et utiles. Je tiens au discernement, à l’exécution et à des logiciels faciles à améliorer.",
+  "principles": {
+    "eyebrow": "(01) Ma manière de travailler",
+    "title": "Quelques <em>principes</em> derrière le travail.",
+    "items": [
+      {
+        "n": "01",
+        "title": "Des idées aux décisions",
+        "body": "Je transforme des idées floues en décisions de produit que les gens peuvent réellement utiliser et sur lesquelles ils peuvent s’appuyer."
+      },
+      {
+        "n": "02",
+        "title": "Assez simples pour évoluer",
+        "body": "Je garde les systèmes suffisamment simples pour continuer à les faire évoluer après le lancement, et pas seulement pour les livrer une seule fois."
+      },
+      {
+        "n": "03",
+        "title": "Régulier, avec intention",
+        "body": "J’avance de façon constante sans perdre de vue la raison d’être du travail ni les personnes qu’il sert."
+      }
+    ]
+  },
+  "skills": {
+    "eyebrow": "(02) Boîte à outils",
+    "title": "Des outils choisis pour la <em>livraison</em>, et non pour le décor.",
+    "groups": [
+      {
+        "title": "Langages",
+        "skills": [
+          "TypeScript",
+          "JavaScript",
+          "Dart",
+          "PHP",
+          "SQL"
+        ]
+      },
+      {
+        "title": "Frameworks",
+        "skills": [
+          "Next.js",
+          "React",
+          "Flutter",
+          "Laravel",
+          "Node.js"
+        ]
+      },
+      {
+        "title": "Bases de données",
+        "skills": [
+          "MySQL",
+          "MongoDB",
+          "PostgreSQL",
+          "Supabase"
+        ]
+      },
+      {
+        "title": "Outils",
+        "skills": [
+          "Git",
+          "REST APIs",
+          "TailwindCSS",
+          "Figma",
+          "Docker"
+        ]
+      }
+    ]
+  },
+  "timeline": {
+    "eyebrow": "(03) Chronologie",
+    "title": "Un <em>parcours</em> d’ingénierie produit, pas une liste de postes.",
+    "items": [
+      {
+        "year": "2026",
+        "tag": "Aujourd’hui",
+        "title": "Quatre produits en ligne, menés en indépendant",
+        "description": "Je construis et fais évoluer Gando, Cléo Network, Kididraw et Mallow pour des fondateurs : fintech, plateforme, edtech et mobile, chacun mené de l’idée à la production.",
+        "stack": [
+          "Next.js",
+          "Supabase",
+          "Stripe",
+          "Expo"
+        ]
+      },
+      {
+        "year": "2025",
+        "tag": "Indépendant",
+        "title": "Diplômé et à mon compte",
+        "description": "J’ai terminé ma licence en génie logiciel et bases de données à l’ENI, quitté Fedhubs et commencé à travailler directement avec des fondateurs, en tant qu’ingénieur produit.",
+        "stack": [
+          "Produit",
+          "Architecture",
+          "React Native"
+        ]
+      },
+      {
+        "year": "2024",
+        "tag": "Lancement",
+        "title": "Livraison de Fedhubs et Fedhubs Pro",
+        "description": "J’ai développé l’application multiplateforme de découverte et de réservation de restaurants, ainsi que la plateforme de gestion que les restaurants utilisent pour leurs profils, leurs réservations et leurs cartes de fidélité.",
+        "stack": [
+          "Flutter",
+          "Laravel",
+          "MySQL"
+        ]
+      },
+      {
+        "year": "2023",
+        "tag": "Premier poste",
+        "title": "De stagiaire à développeur full-stack",
+        "description": "Arrivé chez Fedhubs en mars comme stagiaire front-end, pour développer une application web qui aide les restaurants parisiens à se faire connaître, puis développeur full-stack dès juillet. La même année : finaliste du hackathon interne de l’ENI et mon projet personnel Prompt AI.",
+        "stack": [
+          "React",
+          "Flutter",
+          "Next.js"
+        ]
+      },
+      {
+        "year": "2021",
+        "tag": "Fondations",
+        "title": "Début des études en informatique à l’ENI",
+        "description": "J’ai commencé mes études en génie logiciel à l’École Nationale d’Informatique : algorithmique, bases de données, web et mobile. Finaliste d’une compétition d’algorithmique de l’ENI en 2022, avec mes premiers projets freelance et personnels en parallèle.",
+        "stack": [
+          "C / C++",
+          "Java",
+          "SQL"
+        ]
+      }
+    ]
+  }
+}

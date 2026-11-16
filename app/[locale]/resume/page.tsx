@@ -1,65 +1,51 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowDown, ArrowRight } from "lucide-react";
-import Link from "next/link";
 import ContactCta from "@/components/contact-cta";
+import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
 import { CV_PATH } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Resume — Olivier Rasolomanana",
-  description:
-    "Experience, judgment, and technical range Olivier Rasolomanana brings to teams turning product ideas into usable software.",
+type PageProps = { params: { locale: Locale } };
+
+type Experience = {
+  period: string;
+  company: string;
+  role: string;
+  achievements: string[];
 };
 
-const experiences = [
-  {
-    period: "2023 — Present",
-    company: "Independent Product Builds",
-    role: "Product Engineer",
-    achievements: [
-      "Turned discovery, booking, and operations ideas into usable web and mobile products.",
-      "Shaped interfaces, APIs, and data flows around real product behavior.",
-      "Partnered with founders to clarify scope before writing code.",
-    ],
-  },
-  {
-    period: "2022 — Present",
-    company: "Freelance Collaborations",
-    role: "Product Engineer",
-    achievements: [
-      "Delivered responsive interfaces with React, Next.js, TailwindCSS, and Flutter.",
-      "Connected Laravel, Node.js, REST APIs, and SQL workflows into product features.",
-      "Improved product clarity through short feedback loops and practical decisions.",
-    ],
-  },
-];
+const em = (chunks: React.ReactNode) => (
+  <em className="italic text-violet-600">{chunks}</em>
+);
 
-const education = [
-  "Software engineering foundations across web, mobile, backend, and data workflows.",
-  "Continuous learning in product engineering, AI integration, and modern frontend architecture.",
-];
+export async function generateMetadata({
+  params: { locale },
+}: PageProps): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "resume.metadata" });
+  return { title: t("title"), description: t("description") };
+}
 
-const certifications = [
-  "Full-Stack Web Development",
-  "Mobile Application Development",
-  "Product Engineering Practice",
-];
+export default async function ResumePage({ params: { locale } }: PageProps) {
+  setRequestLocale(locale);
+  const t = await getTranslations("resume");
+  const experiences = t.raw("experience.items") as Experience[];
+  const education = t.raw("foundation.education") as string[];
+  const certifications = t.raw("foundation.practice") as string[];
 
-export default function ResumePage() {
   return (
     <div className="bg-white text-neutral-950">
       <main id="main" className="px-5 md:px-10">
         {/* HERO */}
         <section className="container mx-auto border-b border-gray-200 pb-16 pt-32 md:pb-24 md:pt-40">
           <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
-            (—) Resume
+            {t("eyebrow")}
           </p>
           <h1 className="max-w-5xl font-inter-tight text-5xl font-light leading-[0.95] tracking-tight text-balance md:text-8xl">
-            Experience shaped by{" "}
-            <em className="italic text-violet-600">delivery.</em>
+            {t.rich("title", { em })}
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-gray-500">
-            A concise view of the work, judgment, and technical range I bring to
-            teams turning product ideas into usable software.
+            {t("intro")}
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a
@@ -67,7 +53,7 @@ export default function ResumePage() {
               download="Olivier_Rasolomanana_CV.pdf"
               className="group inline-flex h-12 items-center justify-center gap-3 rounded-full bg-neutral-950 px-6 text-sm font-medium text-white transition hover:bg-neutral-800"
             >
-              Download CV (PDF)
+              {t("downloadCv")}
               <ArrowDown
                 aria-hidden="true"
                 className="size-4 transition-transform group-hover:translate-y-0.5"
@@ -77,7 +63,7 @@ export default function ResumePage() {
               href="/contact"
               className="group inline-flex h-12 items-center justify-center gap-3 rounded-full border border-gray-200 px-6 text-sm font-medium transition hover:bg-gray-50"
             >
-              Get in touch
+              {t("getInTouch")}
               <ArrowRight
                 aria-hidden="true"
                 className="size-4 transition-transform group-hover:translate-x-0.5"
@@ -91,13 +77,12 @@ export default function ResumePage() {
           <div className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
-                (01) Experience
+                {t("experience.eyebrow")}
               </p>
             </div>
             <div className="lg:col-span-8">
               <h2 className="font-inter-tight text-4xl font-light leading-none tracking-tight text-balance md:text-6xl">
-                Work measured in{" "}
-                <em className="italic text-violet-600">shipped</em> product.
+                {t.rich("experience.title", { em })}
               </h2>
             </div>
           </div>
@@ -137,13 +122,12 @@ export default function ResumePage() {
           <div className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
-                (02) Foundation
+                {t("foundation.eyebrow")}
               </p>
             </div>
             <div className="lg:col-span-8">
               <h2 className="font-inter-tight text-4xl font-light leading-none tracking-tight text-balance md:text-6xl">
-                Learning that stays{" "}
-                <em className="italic text-violet-600">practical.</em>
+                {t.rich("foundation.title", { em })}
               </h2>
             </div>
           </div>
@@ -151,7 +135,7 @@ export default function ResumePage() {
           <div className="grid gap-px bg-gray-200 md:grid-cols-2">
             <div className="bg-white p-8 md:p-10">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-gray-500">
-                Education
+                {t("foundation.educationLabel")}
               </p>
               <div className="mt-6 space-y-4 text-sm leading-relaxed text-gray-500">
                 {education.map((item) => (
@@ -162,7 +146,7 @@ export default function ResumePage() {
 
             <div className="bg-white p-8 md:p-10">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-gray-500">
-                Practice
+                {t("foundation.practiceLabel")}
               </p>
               <div className="mt-6 flex flex-wrap gap-1.5 font-mono text-[11px] uppercase tracking-wider text-gray-500">
                 {certifications.map((certification) => (

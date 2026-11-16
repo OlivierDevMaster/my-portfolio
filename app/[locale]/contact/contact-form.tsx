@@ -1,16 +1,22 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useTranslations } from "next-intl";
 import { ArrowUpRight } from "lucide-react";
 import { CONTACT_EMAIL } from "@/lib/site";
-
-const topics = ["Freelance build", "Full-time role", "Something else"];
 
 const fieldClass =
   "border-0 border-b border-gray-300 bg-transparent px-0 py-3 text-base outline-none transition placeholder:text-gray-400 focus:border-violet-600 focus-visible:ring-0 focus-visible:ring-offset-0 md:text-lg";
 
 export default function ContactForm() {
+  const t = useTranslations("contact.form");
   const [sent, setSent] = useState(false);
+
+  const topics = [
+    t("topics.freelance"),
+    t("topics.fullTime"),
+    t("topics.other"),
+  ];
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -21,7 +27,7 @@ export default function ContactForm() {
     const topic = String(formData.get("topic") || "");
     const message = String(formData.get("message") || "");
 
-    const subject = `${topic} — portfolio inquiry from ${name}`;
+    const subject = t("subject", { topic, name });
     const body = `${message}\n\n—\n${name}\n${email}`;
 
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
@@ -36,15 +42,15 @@ export default function ContactForm() {
       className="rounded-2xl border border-gray-200 p-5 sm:p-6 md:p-10"
     >
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
-        Start with context
+        {t("eyebrow")}
       </p>
       <h2 className="mt-3 font-inter-tight text-3xl font-light">
-        Tell me what should exist.
+        {t("title")}
       </h2>
 
       <fieldset className="mt-8">
         <legend className="font-mono text-[11px] uppercase tracking-widest text-gray-500">
-          I'm reaching out about
+          {t("topicLegend")}
         </legend>
         <div className="mt-3 flex flex-wrap gap-2">
           {topics.map((topic, index) => (
@@ -67,7 +73,7 @@ export default function ContactForm() {
       <div className="mt-8 grid gap-6">
         <label className="grid gap-1">
           <span className="font-mono text-[11px] uppercase tracking-widest text-gray-500">
-            Name
+            {t("name")}
           </span>
           <input
             required
@@ -75,13 +81,13 @@ export default function ContactForm() {
             type="text"
             autoComplete="name"
             className={fieldClass}
-            placeholder="Your name"
+            placeholder={t("namePlaceholder")}
           />
         </label>
 
         <label className="grid gap-1">
           <span className="font-mono text-[11px] uppercase tracking-widest text-gray-500">
-            Email
+            {t("email")}
           </span>
           <input
             required
@@ -90,20 +96,20 @@ export default function ContactForm() {
             autoComplete="email"
             inputMode="email"
             className={fieldClass}
-            placeholder="you@company.com"
+            placeholder={t("emailPlaceholder")}
           />
         </label>
 
         <label className="grid gap-1">
           <span className="font-mono text-[11px] uppercase tracking-widest text-gray-500">
-            Message
+            {t("message")}
           </span>
           <textarea
             required
             name="message"
             rows={5}
             className={`${fieldClass} resize-y`}
-            placeholder="What are you building, and where are you stuck?"
+            placeholder={t("messagePlaceholder")}
           />
         </label>
       </div>
@@ -112,7 +118,7 @@ export default function ContactForm() {
         type="submit"
         className="group mt-8 inline-flex h-14 w-full items-center justify-center gap-3 rounded-full bg-violet-600 px-8 font-medium text-white transition hover:bg-violet-700 sm:w-auto"
       >
-        Send message
+        {t("submit")}
         <ArrowUpRight
           aria-hidden="true"
           className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
@@ -120,21 +126,19 @@ export default function ContactForm() {
       </button>
 
       <p aria-live="polite" className="mt-4 text-sm leading-relaxed text-gray-600">
-        {sent ? (
-          <>
-            Your email app should now be open with the message ready. Nothing
-            happened? Write directly to{" "}
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className="text-neutral-950 underline underline-offset-4"
-            >
-              {CONTACT_EMAIL}
-            </a>
-            .
-          </>
-        ) : (
-          "Opens your email app with everything filled in."
-        )}
+        {sent
+          ? t.rich("sent", {
+              email: CONTACT_EMAIL,
+              link: (chunks) => (
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="text-neutral-950 underline underline-offset-4"
+                >
+                  {chunks}
+                </a>
+              ),
+            })
+          : t("hint")}
       </p>
     </form>
   );

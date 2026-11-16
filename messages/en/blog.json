@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "title": "Notes — Olivier Rasolomanana",
+    "description": "Notes on product engineering: the security checks I run before a launch, how I work with AI coding agents, and the decisions I keep for myself."
+  },
+  "eyebrow": "(—) Notes · {count, plural, one {# post} other {# posts}}",
+  "title": "What I learn <em>shipping</em> products.",
+  "intro": "Notes from real product work: the checks I run before a launch, how I work with AI coding agents, and the decisions I don't hand off.",
+  "cta": {
+    "title": "Want to talk about one of <em>these?</em>",
+    "body": "Happy to go deeper on security, AI-assisted delivery or product decisions for your own project."
+  }
+}
