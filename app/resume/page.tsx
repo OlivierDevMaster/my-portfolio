@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
-import { ArrowDown } from "lucide-react";
+import ContactCta from "@/components/contact-cta";
+import { CV_PATH } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Resume — Olivier Rasolomanana",
@@ -46,9 +47,7 @@ const certifications = [
 export default function ResumePage() {
   return (
     <div className="bg-white text-neutral-950">
-      <Navbar />
-
-      <main className="px-5 md:px-10">
+      <main id="main" className="px-5 md:px-10">
         {/* HERO */}
         <section className="container mx-auto border-b border-gray-200 pb-16 pt-32 md:pb-24 md:pt-40">
           <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
@@ -56,25 +55,40 @@ export default function ResumePage() {
           </p>
           <h1 className="max-w-5xl font-inter-tight text-5xl font-light leading-[0.95] tracking-tight text-balance md:text-8xl">
             Experience shaped by{" "}
-            <em className="not-italic text-violet-600">delivery.</em>
+            <em className="italic text-violet-600">delivery.</em>
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-gray-500">
             A concise view of the work, judgment, and technical range I bring to
             teams turning product ideas into usable software.
           </p>
-          <Link
-            href="/RASOLOMANANA_Herimanitra_Olivier.pdf"
-            download
-            className="group mt-10 inline-flex items-center gap-3 rounded-full bg-neutral-950 px-6 py-3.5 text-sm font-medium text-white transition hover:bg-neutral-800"
-          >
-            Download CV
-            <ArrowDown className="size-4 transition-transform group-hover:translate-y-0.5" />
-          </Link>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <a
+              href={CV_PATH}
+              download="Olivier_Rasolomanana_CV.pdf"
+              className="group inline-flex h-12 items-center justify-center gap-3 rounded-full bg-neutral-950 px-6 text-sm font-medium text-white transition hover:bg-neutral-800"
+            >
+              Download CV (PDF)
+              <ArrowDown
+                aria-hidden="true"
+                className="size-4 transition-transform group-hover:translate-y-0.5"
+              />
+            </a>
+            <Link
+              href="/contact"
+              className="group inline-flex h-12 items-center justify-center gap-3 rounded-full border border-gray-200 px-6 text-sm font-medium transition hover:bg-gray-50"
+            >
+              Get in touch
+              <ArrowRight
+                aria-hidden="true"
+                className="size-4 transition-transform group-hover:translate-x-0.5"
+              />
+            </Link>
+          </div>
         </section>
 
         {/* EXPERIENCE */}
-        <section className="container mx-auto border-b border-gray-200 py-24 md:py-40">
-          <div className="mb-16 grid gap-12 lg:grid-cols-12">
+        <section className="container mx-auto border-b border-gray-200 py-16 md:py-40">
+          <div className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
                 (01) Experience
@@ -83,7 +97,7 @@ export default function ResumePage() {
             <div className="lg:col-span-8">
               <h2 className="font-inter-tight text-4xl font-light leading-none tracking-tight text-balance md:text-6xl">
                 Work measured in{" "}
-                <em className="not-italic text-violet-600">shipped</em> product.
+                <em className="italic text-violet-600">shipped</em> product.
               </h2>
             </div>
           </div>
@@ -95,7 +109,7 @@ export default function ResumePage() {
                 className="grid grid-cols-12 gap-4 py-8 md:py-10"
               >
                 <div className="col-span-12 md:col-span-4">
-                  <div className="font-mono text-[10px] uppercase tracking-widest text-gray-400">
+                  <div className="font-mono text-[11px] uppercase tracking-widest text-gray-500">
                     {experience.period}
                   </div>
                   <h3 className="mt-3 font-inter-tight text-2xl font-light md:text-3xl">
@@ -105,7 +119,7 @@ export default function ResumePage() {
                     {experience.role}
                   </p>
                 </div>
-                <ul className="col-span-12 space-y-3 text-sm leading-relaxed text-gray-500 md:col-span-8">
+                <ul className="col-span-12 space-y-3 text-sm leading-relaxed text-gray-600 md:col-span-8">
                   {experience.achievements.map((achievement) => (
                     <li key={achievement} className="flex gap-3">
                       <span className="mt-2 size-1 shrink-0 rounded-full bg-violet-600/60" />
@@ -119,8 +133,8 @@ export default function ResumePage() {
         </section>
 
         {/* EDUCATION + PRACTICE */}
-        <section className="container mx-auto py-24 md:py-40">
-          <div className="mb-16 grid gap-12 lg:grid-cols-12">
+        <section className="container mx-auto py-16 md:py-40">
+          <div className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
                 (02) Foundation
@@ -129,14 +143,14 @@ export default function ResumePage() {
             <div className="lg:col-span-8">
               <h2 className="font-inter-tight text-4xl font-light leading-none tracking-tight text-balance md:text-6xl">
                 Learning that stays{" "}
-                <em className="not-italic text-violet-600">practical.</em>
+                <em className="italic text-violet-600">practical.</em>
               </h2>
             </div>
           </div>
 
           <div className="grid gap-px bg-gray-200 md:grid-cols-2">
             <div className="bg-white p-8 md:p-10">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-gray-400">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-gray-500">
                 Education
               </p>
               <div className="mt-6 space-y-4 text-sm leading-relaxed text-gray-500">
@@ -147,10 +161,10 @@ export default function ResumePage() {
             </div>
 
             <div className="bg-white p-8 md:p-10">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-gray-400">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-gray-500">
                 Practice
               </p>
-              <div className="mt-6 flex flex-wrap gap-1.5 font-mono text-[10px] uppercase tracking-wider text-gray-400">
+              <div className="mt-6 flex flex-wrap gap-1.5 font-mono text-[11px] uppercase tracking-wider text-gray-500">
                 {certifications.map((certification) => (
                   <span
                     key={certification}
@@ -163,6 +177,8 @@ export default function ResumePage() {
             </div>
           </div>
         </section>
+
+        <ContactCta showResume={false} />
       </main>
     </div>
   );

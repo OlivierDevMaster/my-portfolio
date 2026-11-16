@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
-import { ArrowUpRight } from "lucide-react";
+import ContactCta from "@/components/contact-cta";
 
 export const metadata: Metadata = {
   title: "About — Olivier Rasolomanana",
@@ -83,9 +82,7 @@ const milestones = [
 export default function AboutPage() {
   return (
     <div className="bg-white text-neutral-950">
-      <Navbar />
-
-      <main className="px-5 md:px-10">
+      <main id="main" className="px-5 md:px-10">
         {/* HERO */}
         <section className="container mx-auto border-b border-gray-200 pb-16 pt-32 md:pb-24 md:pt-40">
           <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
@@ -93,7 +90,7 @@ export default function AboutPage() {
           </p>
           <h1 className="max-w-5xl font-inter-tight text-5xl font-light leading-[0.95] tracking-tight text-balance md:text-8xl">
             The bridge between product{" "}
-            <em className="not-italic text-violet-600">intent</em> and working
+            <em className="italic text-violet-600">intent</em> and working
             software.
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-gray-500">
@@ -104,8 +101,8 @@ export default function AboutPage() {
         </section>
 
         {/* PRINCIPLES */}
-        <section className="container mx-auto border-b border-gray-200 py-24 md:py-40">
-          <div className="mb-20 grid gap-12 lg:grid-cols-12">
+        <section className="container mx-auto border-b border-gray-200 py-16 md:py-40">
+          <div className="mb-10 grid gap-6 md:mb-20 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
                 (01) How I work
@@ -113,7 +110,7 @@ export default function AboutPage() {
             </div>
             <div className="lg:col-span-8">
               <h2 className="font-inter-tight text-4xl font-light leading-none tracking-tight text-balance md:text-6xl">
-                A few <em className="not-italic text-violet-600">principles</em>{" "}
+                A few <em className="italic text-violet-600">principles</em>{" "}
                 behind the work.
               </h2>
             </div>
@@ -125,8 +122,8 @@ export default function AboutPage() {
                 key={principle.n}
                 className="group bg-white p-8 transition-colors hover:bg-gray-50 md:p-10"
               >
-                <div className="mb-16 flex items-center justify-between">
-                  <span className="font-mono text-xs text-gray-400">
+                <div className="mb-8 flex items-center justify-between md:mb-16">
+                  <span className="font-mono text-xs text-gray-500">
                     {principle.n}
                   </span>
                   <span className="size-1.5 rounded-full bg-violet-600/60" />
@@ -143,8 +140,8 @@ export default function AboutPage() {
         </section>
 
         {/* SKILLS */}
-        <section className="container mx-auto border-b border-gray-200 py-24 md:py-40">
-          <div className="mb-16 grid gap-12 lg:grid-cols-12">
+        <section className="container mx-auto border-b border-gray-200 py-16 md:py-40">
+          <div className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
                 (02) Toolkit
@@ -153,7 +150,7 @@ export default function AboutPage() {
             <div className="lg:col-span-8">
               <h2 className="font-inter-tight text-4xl font-light leading-none tracking-tight text-balance md:text-6xl">
                 Tools chosen for{" "}
-                <em className="not-italic text-violet-600">delivery</em>, not
+                <em className="italic text-violet-600">delivery</em>, not
                 decoration.
               </h2>
             </div>
@@ -165,7 +162,7 @@ export default function AboutPage() {
                 <h3 className="font-inter-tight text-2xl font-light">
                   {group.title}
                 </h3>
-                <div className="mt-5 flex flex-wrap gap-1.5 font-mono text-[10px] uppercase tracking-wider text-gray-400">
+                <div className="mt-5 flex flex-wrap gap-1.5 font-mono text-[11px] uppercase tracking-wider text-gray-500">
                   {group.skills.map((skill) => (
                     <span
                       key={skill}
@@ -181,8 +178,8 @@ export default function AboutPage() {
         </section>
 
         {/* TIMELINE */}
-        <section className="container mx-auto py-24 md:py-40">
-          <div className="mb-16 grid gap-12 lg:grid-cols-12">
+        <section className="container mx-auto py-16 md:py-40">
+          <div className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
                 (03) Timeline
@@ -191,7 +188,7 @@ export default function AboutPage() {
             <div className="lg:col-span-8">
               <h2 className="font-inter-tight text-4xl font-light leading-none tracking-tight text-balance md:text-6xl">
                 A product engineering{" "}
-                <em className="not-italic text-violet-600">journey</em>, not a
+                <em className="italic text-violet-600">journey</em>, not a
                 list of roles.
               </h2>
             </div>
@@ -201,13 +198,13 @@ export default function AboutPage() {
             {milestones.map((milestone) => (
               <li
                 key={milestone.year}
-                className="grid grid-cols-12 items-baseline gap-4 py-8 md:py-10"
+                className="grid grid-cols-12 items-baseline gap-x-4 gap-y-3 py-8 md:py-10"
               >
                 <div className="col-span-12 md:col-span-2">
                   <div className="font-inter-tight text-4xl font-light text-violet-600 md:text-5xl">
                     {milestone.year}
                   </div>
-                  <div className="mt-2 font-mono text-[10px] uppercase tracking-widest text-gray-400">
+                  <div className="mt-2 font-mono text-[11px] uppercase tracking-widest text-gray-500">
                     {milestone.tag}
                   </div>
                 </div>
@@ -216,9 +213,9 @@ export default function AboutPage() {
                     {milestone.title}
                   </h3>
                 </div>
-                <div className="col-span-12 text-sm leading-relaxed text-gray-500 md:col-span-4">
+                <div className="col-span-12 text-sm leading-relaxed text-gray-600 md:col-span-5">
                   {milestone.description}
-                  <div className="mt-3 flex flex-wrap gap-1.5 font-mono text-[10px] uppercase tracking-wider text-gray-400">
+                  <div className="mt-3 flex flex-wrap gap-1.5 font-mono text-[11px] uppercase tracking-wider text-gray-500">
                     {milestone.stack.map((tech) => (
                       <span
                         key={tech}
@@ -229,11 +226,12 @@ export default function AboutPage() {
                     ))}
                   </div>
                 </div>
-                <ArrowUpRight className="col-span-12 size-6 text-gray-300 md:col-span-1 md:justify-self-end" />
               </li>
             ))}
           </ul>
         </section>
+
+        <ContactCta />
       </main>
     </div>
   );

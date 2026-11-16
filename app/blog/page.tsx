@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
-import { ArrowUpRight } from "lucide-react";
+import ContactCta from "@/components/contact-cta";
 
 export const metadata: Metadata = {
   title: "Notes — Olivier Rasolomanana",
@@ -14,49 +13,44 @@ const articles = [
     category: "Product Engineering",
     description:
       "How clear constraints, simple interfaces, and thoughtful defaults keep products moving after launch.",
-    readTime: "5 min",
   },
   {
     title: "From Prototype to Production",
     category: "System Design",
     description:
       "The decisions that help early ideas become dependable products without overthinking the system.",
-    readTime: "7 min",
   },
   {
     title: "Where AI Actually Helps in SaaS Products",
     category: "AI Integration",
     description:
       "A grounded look at AI features that improve workflows without reducing trust.",
-    readTime: "6 min",
   },
   {
     title: "Building Better Full-Stack Feedback Loops",
     category: "Software Development",
     description:
       "Why short feedback loops, clear interfaces, and calm releases make better products.",
-    readTime: "4 min",
   },
 ];
 
 export default function BlogPage() {
   return (
     <div className="bg-white text-neutral-950">
-      <Navbar />
-
-      <main className="px-5 md:px-10">
+      <main id="main" className="px-5 md:px-10">
         {/* HERO */}
         <section className="container mx-auto border-b border-gray-200 pb-16 pt-32 md:pb-24 md:pt-40">
           <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
-            (—) Notes · {articles.length} essays
+            (—) Notes · {articles.length} drafts in progress
           </p>
           <h1 className="max-w-5xl font-inter-tight text-5xl font-light leading-[0.95] tracking-tight text-balance md:text-8xl">
             Building products,{" "}
-            <em className="not-italic text-violet-600">in public.</em>
+            <em className="italic text-violet-600">in public.</em>
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-gray-500">
             Short essays on product judgment, implementation tradeoffs, AI
-            features, and systems that stay understandable.
+            features, and systems that stay understandable. The first ones are
+            being written now.
           </p>
         </section>
 
@@ -65,33 +59,42 @@ export default function BlogPage() {
           <ul className="divide-y divide-gray-200 border-y border-gray-200">
             {articles.map((article, index) => (
               <li key={article.title}>
-                <a
-                  href="#"
-                  className="group -mx-5 grid grid-cols-12 items-baseline gap-4 px-5 py-8 transition-colors hover:bg-gray-50 md:-mx-10 md:px-10 md:py-10"
-                >
-                  <span className="col-span-2 pt-2 font-mono text-xs text-gray-400 md:col-span-1">
+                <div className="grid grid-cols-12 items-baseline gap-x-4 gap-y-3 py-8 md:py-10">
+                  <span className="col-span-2 pt-2 font-mono text-xs text-gray-500 md:col-span-1">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div className="col-span-10 md:col-span-5">
-                    <div className="mb-2 font-mono text-[10px] uppercase tracking-widest text-gray-400">
+                    <div className="mb-2 font-mono text-[11px] uppercase tracking-widest text-gray-500">
                       {article.category}
                     </div>
-                    <h2 className="font-inter-tight text-2xl font-light transition-colors group-hover:text-violet-600 md:text-4xl">
+                    <h2 className="font-inter-tight text-2xl font-light md:text-4xl">
                       {article.title}
                     </h2>
                   </div>
-                  <div className="col-span-12 text-sm leading-relaxed text-gray-500 md:col-span-4">
+                  <p className="col-span-12 text-sm leading-relaxed text-gray-600 md:col-span-4">
                     {article.description}
+                  </p>
+                  <div className="col-span-12 md:col-span-2 md:justify-self-end">
+                    <span className="inline-block rounded-full bg-gray-100 px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider text-gray-600">
+                      In progress
+                    </span>
                   </div>
-                  <div className="col-span-10 pt-1 font-mono text-[10px] uppercase tracking-widest text-gray-400 md:col-span-1">
-                    {article.readTime}
-                  </div>
-                  <ArrowUpRight className="col-span-2 size-6 justify-self-end text-gray-400 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-violet-600 md:col-span-1" />
-                </a>
+                </div>
               </li>
             ))}
           </ul>
         </section>
+
+        <ContactCta
+          title={
+            <>
+              Want to talk about one of{" "}
+              <em className="italic text-violet-600">these?</em>
+            </>
+          }
+          body="Happy to discuss product engineering, system design or AI features before the posts are out."
+          showResume={false}
+        />
       </main>
     </div>
   );
