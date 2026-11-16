@@ -18,10 +18,20 @@ const config: Config = {
   			marquee: {
   				'0%': { transform: 'translateX(0)' },
   				'100%': { transform: 'translateX(-50%)' }
+  			},
+  			'logo-draw': {
+  				from: { strokeDashoffset: '1' },
+  				to: { strokeDashoffset: '0' }
+  			},
+  			'logo-pop': {
+  				from: { transform: 'translate(-6px, 6px) scale(0)' },
+  				to: { transform: 'none' }
   			}
   		},
   		animation: {
-  			marquee: 'marquee 32s linear infinite'
+  			marquee: 'marquee 32s linear infinite',
+  			'logo-draw': 'logo-draw 0.7s cubic-bezier(0.6, 0, 0.2, 1) both',
+  			'logo-pop': 'logo-pop 0.5s cubic-bezier(0.2, 1.4, 0.4, 1) both'
   		},
   		colors: {
   			background: 'hsl(var(--background))',

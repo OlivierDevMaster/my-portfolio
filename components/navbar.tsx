@@ -7,6 +7,7 @@ import { ArrowDown, ArrowRight } from "lucide-react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { CV_PATH, navItems } from "@/lib/site";
+import Logo from "@/components/logo";
 
 const localeNames = { en: "English", fr: "Français" } as const;
 
@@ -119,16 +120,8 @@ export default function Navbar() {
             className="flex items-center gap-3"
             aria-label={t("homeLabel")}
           >
-            <span
-              aria-hidden="true"
-              className={`grid size-8 place-items-center rounded-full font-mono text-xs font-medium transition-colors duration-300 ${
-                isMenuOpen
-                  ? "bg-white text-neutral-950"
-                  : "bg-neutral-950 text-white"
-              }`}
-            >
-              O
-            </span>
+            {/* Keyed on the route so the logo animation replays on every page. */}
+            <Logo key={pathname} inverted={isMenuOpen} />
             <span className="text-sm leading-tight tracking-tight">
               <span className="block font-medium">Olivier</span>
               <span
