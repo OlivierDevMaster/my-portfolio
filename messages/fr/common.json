@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "title": "Olivier Rasolomanana — Ingénieur produit",
+    "description": "Olivier Rasolomanana est un ingénieur produit qui aide les fondateurs et les équipes à transformer leurs idées en produits web et mobiles que les gens utilisent vraiment.",
+    "ogDescription": "Ingénierie produit full-stack, web et mobile, de la première esquisse à la production."
+  },
+  "skipLink": "Aller au contenu",
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "about": "À propos",
+    "resume": "CV",
+    "blog": "Notes",
+    "contact": "Contact",
+    "mainLabel": "Navigation principale",
+    "homeLabel": "Olivier Rasolomanana, accueil",
+    "role": "Ingénieur produit",
+    "letsTalk": "Discutons",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "menu": "Menu",
+    "close": "Fermer",
+    "downloadCv": "Télécharger le CV",
+    "language": "Langue"
+  },
+  "footer": {
+    "tagline": "Ingénieur produit · web et mobile.",
+    "navLabel": "Navigation du pied de page"
+  },
+  "cta": {
+    "label": "(—) Prochaine étape",
+    "title": "Vous avez quelque chose à <em>construire ?</em>",
+    "body": "Dites-moi ce que vous construisez et où ça bloque. Quelques lignes suffisent pour commencer.",
+    "start": "Lancer la conversation",
+    "downloadCv": "Télécharger le CV"
+  },
+  "project": {
+    "visit": "Voir",
+    "private": "Privé",
+    "opensInNewTab": "(s’ouvre dans un nouvel onglet)"
+  },
+  "post": {
+    "minRead": "{minutes} min de lecture",
+    "allNotes": "Toutes les notes",
+    "fromProject": "Tiré du projet",
+    "keepReading": "À lire aussi",
+    "moreNotes": "Autres notes",
+    "cta": {
+      "title": "Vous construisez quelque chose aux <em>enjeux comparables ?</em>",
+      "body": "Si votre produit gère de l’argent, des données personnelles ou une date de lancement impossible à repousser, dites-moi où ça bloque. Quelques lignes suffisent."
+    }
+  }
+}

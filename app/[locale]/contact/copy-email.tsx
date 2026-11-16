@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Check, Copy, Mail } from "lucide-react";
 import { CONTACT_EMAIL } from "@/lib/site";
 
 export default function CopyEmail() {
+  const t = useTranslations("contact.copyEmail");
   const [copied, setCopied] = useState(false);
 
   const copy = async () => {
@@ -36,7 +38,7 @@ export default function CopyEmail() {
         ) : (
           <Copy aria-hidden="true" className="size-4" />
         )}
-        <span aria-live="polite">{copied ? "Copied" : "Copy"}</span>
+        <span aria-live="polite">{copied ? t("copied") : t("copy")}</span>
       </button>
     </div>
   );

@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "title": "Projects — Olivier Rasolomanana",
+    "description": "Products Olivier Rasolomanana is building now (Gando, Cléo Network, Kididraw, Mallow) and earlier work across web and mobile.",
+    "ogTitle": "Projects — Olivier Rasolomanana",
+    "ogDescription": "Fintech, marketplace, edtech and mobile products, built from idea to launch."
+  },
+  "eyebrow": "(—) Projects · {count, plural, one {# product} other {# products}}",
+  "title": "Everything I've <em>shipped</em>, in one place.",
+  "intro": "Fintech, marketplaces, edtech and mobile apps. What I'm building now comes first, earlier work below.",
+  "groups": {
+    "now": {
+      "label": "Now",
+      "note": "In active development"
+    },
+    "earlier": {
+      "label": "Earlier",
+      "note": "Shipped before"
+    }
+  }
+}

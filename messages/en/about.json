@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "title": "About — Olivier Rasolomanana",
+    "description": "Olivier Rasolomanana is a product engineer who turns early ideas into clear, usable web and mobile software."
+  },
+  "eyebrow": "(—) About · Product Engineer",
+  "title": "The bridge between product <em>intent</em> and working software.",
+  "intro": "I'm Olivier — a product-minded engineer who turns early ideas into clear, useful web and mobile products. I care about judgment, execution, and software that stays easy to improve.",
+  "principles": {
+    "eyebrow": "(01) How I work",
+    "title": "A few <em>principles</em> behind the work.",
+    "items": [
+      {
+        "n": "01",
+        "title": "Ideas into decisions",
+        "body": "I turn unclear ideas into product decisions people can actually use and build on."
+      },
+      {
+        "n": "02",
+        "title": "Simple enough to evolve",
+        "body": "I keep systems simple enough to keep changing after launch, not just to ship once."
+      },
+      {
+        "n": "03",
+        "title": "Steady, with intent",
+        "body": "I move steadily without losing the reason behind the work or the people it serves."
+      }
+    ]
+  },
+  "skills": {
+    "eyebrow": "(02) Toolkit",
+    "title": "Tools chosen for <em>delivery</em>, not decoration.",
+    "groups": [
+      {
+        "title": "Languages",
+        "skills": [
+          "TypeScript",
+          "JavaScript",
+          "Dart",
+          "PHP",
+          "SQL"
+        ]
+      },
+      {
+        "title": "Frameworks",
+        "skills": [
+          "Next.js",
+          "React",
+          "Flutter",
+          "Laravel",
+          "Node.js"
+        ]
+      },
+      {
+        "title": "Databases",
+        "skills": [
+          "MySQL",
+          "MongoDB",
+          "PostgreSQL",
+          "Supabase"
+        ]
+      },
+      {
+        "title": "Tools",
+        "skills": [
+          "Git",
+          "REST APIs",
+          "TailwindCSS",
+          "Figma",
+          "Docker"
+        ]
+      }
+    ]
+  },
+  "timeline": {
+    "eyebrow": "(03) Timeline",
+    "title": "A product engineering <em>journey</em>, not a list of roles.",
+    "items": [
+      {
+        "year": "2026",
+        "tag": "Today",
+        "title": "Four products live, built independently",
+        "description": "Building and running Gando, Cléo Network, Kididraw and Mallow for founders: fintech, marketplace, edtech and mobile, each taken from idea to production.",
+        "stack": [
+          "Next.js",
+          "Supabase",
+          "Stripe",
+          "Expo"
+        ]
+      },
+      {
+        "year": "2025",
+        "tag": "Independent",
+        "title": "Graduated and went independent",
+        "description": "Finished my licence in software engineering and databases at ENI, wrapped up my role at Fedhubs, and started working directly with founders as a product engineer.",
+        "stack": [
+          "Product",
+          "System Design",
+          "React Native"
+        ]
+      },
+      {
+        "year": "2024",
+        "tag": "Launch",
+        "title": "Shipped Fedhubs and Fedhubs Pro",
+        "description": "Built the cross-platform restaurant discovery and booking app, and the operations platform restaurants use for profiles, reservations and loyalty cards.",
+        "stack": [
+          "Flutter",
+          "Laravel",
+          "MySQL"
+        ]
+      },
+      {
+        "year": "2023",
+        "tag": "First role",
+        "title": "From intern to full-stack developer",
+        "description": "Joined Fedhubs as a front-end intern in March, building a web app to help Paris restaurants get found, and moved to full-stack developer in July. Same year: finalist in ENI's internal hackathon and my Prompt AI side project.",
+        "stack": [
+          "React",
+          "Flutter",
+          "Next.js"
+        ]
+      },
+      {
+        "year": "2021",
+        "tag": "Foundation",
+        "title": "Started computer science at ENI",
+        "description": "Began my software engineering studies at the École Nationale d'Informatique: algorithms, databases, web and mobile. Finalist in an ENI algorithm competition in 2022, with my first freelance and personal projects alongside.",
+        "stack": [
+          "C / C++",
+          "Java",
+          "SQL"
+        ]
+      }
+    ]
+  }
+}

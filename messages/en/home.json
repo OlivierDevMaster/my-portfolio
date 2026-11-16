@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "title": "Olivier Rasolomanana — Product Engineer",
+    "description": "Olivier Rasolomanana is a product engineer who helps founders and teams turn early ideas into web and mobile products people actually use."
+  },
+  "hero": {
+    "watermark": "developer",
+    "eyebrow": "(—) Currently open to new work",
+    "titleAccent": "Design. Code.",
+    "titleRest": "<ship>Ship</ship> what matters.",
+    "intro": "I'm Olivier, a product engineer who helps founders and teams turn early ideas into web and mobile products people actually use. Over five years building full-stack software, from first sketch to production.",
+    "portraitAlt": "Portrait of Olivier Rasolomanana",
+    "startProject": "Start a project",
+    "seeWork": "See selected work"
+  },
+  "stack": {
+    "label": "Technologies I work with"
+  },
+  "expertise": {
+    "label": "(01) Expertise",
+    "title": "I build systems that turn <em>ideas</em> into production.",
+    "intro": "I work where product thinking meets engineering, helping teams take early sketches through to real software that survives real usage.",
+    "services": [
+      {
+        "n": "01",
+        "title": "Product Engineering",
+        "body": "Turning product intent into working software, tying every decision to user value and delivery clarity."
+      },
+      {
+        "n": "02",
+        "title": "Full-Stack Development",
+        "body": "Interface, backend, and delivery paths that move a product from prototype to real, dependable usage."
+      },
+      {
+        "n": "03",
+        "title": "System Design",
+        "body": "APIs, data models, and workflows shaped so teams can keep moving without long-term friction."
+      }
+    ]
+  },
+  "work": {
+    "label": "(02) Current work",
+    "title": "Products I'm <em>building</em> right now.",
+    "viewAll": "View all projects"
+  },
+  "numbers": {
+    "label": "(—) By the numbers",
+    "title": "A quiet record of <em>shipped</em> work, measured in launches, not headcount.",
+    "stats": [
+      {
+        "n": "01",
+        "value": "5+",
+        "label": "Years building software"
+      },
+      {
+        "n": "02",
+        "value": "10",
+        "label": "Products delivered idea to launch"
+      },
+      {
+        "n": "03",
+        "value": "15",
+        "label": "Tools across real product work"
+      },
+      {
+        "n": "04",
+        "value": "∞",
+        "label": "Lessons from iteration"
+      }
+    ]
+  },
+  "writing": {
+    "label": "(03) Writing",
+    "title": "Notes from <em>real</em> product work.",
+    "viewAll": "All notes"
+  },
+  "contact": {
+    "label": "(03) Contact",
+    "labelWithWriting": "(04) Contact",
+    "title": "Bring me a <em>problem</em> worth solving.",
+    "body": "Open to freelance builds and product engineering roles, with teams that care about turning ideas into clear, usable software."
+  }
+}

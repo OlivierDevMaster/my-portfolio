@@ -4,14 +4,15 @@ export const CONTACT_EMAIL = "herimanitraolivier@gmail.com";
 
 export const CV_PATH = "/RASOLOMANANA_Herimanitra_Olivier.pdf";
 
+/** Labels live in messages/<locale>/common.json under `nav.<key>`. */
 export const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Projects", href: "/projects" },
-  { label: "About", href: "/about" },
-  { label: "Resume", href: "/resume" },
-  { label: "Notes", href: "/blog" },
-  { label: "Contact", href: "/contact" },
-];
+  { key: "home", href: "/" },
+  { key: "projects", href: "/projects" },
+  { key: "about", href: "/about" },
+  { key: "resume", href: "/resume" },
+  { key: "blog", href: "/blog" },
+  { key: "contact", href: "/contact" },
+] as const;
 
 export const socialLinks: { label: string; href: string; icon: LucideIcon }[] = [
   {

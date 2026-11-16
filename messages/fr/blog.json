@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "title": "Notes — Olivier Rasolomanana",
+    "description": "Notes sur l’ingénierie produit : les vérifications de sécurité que je fais avant un lancement, ma façon de travailler avec les agents de code IA et les décisions que je garde pour moi."
+  },
+  "eyebrow": "(—) Notes · {count, plural, one {# article} other {# articles}}",
+  "title": "Ce que j’apprends en <em>livrant</em> des produits.",
+  "intro": "Des notes tirées de vrais projets : les vérifications que je fais avant un lancement, ma façon de travailler avec les agents de code IA et les décisions que je ne délègue pas.",
+  "cta": {
+    "title": "Envie d’en parler <em>ensemble ?</em>",
+    "body": "Je peux approfondir la sécurité, la livraison assistée par l’IA ou les décisions produit pour votre propre projet."
+  }
+}

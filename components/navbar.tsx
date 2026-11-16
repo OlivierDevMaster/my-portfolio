@@ -1,11 +1,63 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowDown, ArrowRight } from "lucide-react";
+import { Link, usePathname } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 import { CV_PATH, navItems } from "@/lib/site";
+
+const localeNames = { en: "English", fr: "Français" } as const;
+
+function LocaleSwitcher({
+  inverted = false,
+  onSwitch,
+}: {
+  inverted?: boolean;
+  onSwitch?: () => void;
+}) {
+  const t = useTranslations("common.nav");
+  const locale = useLocale();
+  const pathname = usePathname();
+
+  return (
+    <ul
+      aria-label={t("language")}
+      className={`flex items-center rounded-full border p-0.5 font-mono text-[11px] uppercase tracking-wider ${
+        inverted ? "border-white/20" : "border-gray-200"
+      }`}
+    >
+      {routing.locales.map((item) => {
+        const active = item === locale;
+        return (
+          <li key={item}>
+            <Link
+              href={pathname}
+              locale={item}
+              hrefLang={item}
+              lang={item}
+              onClick={onSwitch}
+              aria-current={active ? "true" : undefined}
+              className={`inline-flex h-9 min-w-11 items-center justify-center rounded-full px-2.5 transition-colors ${
+                active
+                  ? inverted
+                    ? "bg-white text-neutral-950"
+                    : "bg-neutral-950 text-white"
+                  : inverted
+                    ? "text-white/60 hover:text-white"
+                    : "text-gray-500 hover:text-neutral-950"
+              }`}
+            >
+              <span aria-hidden="true">{item}</span>
+              <span className="sr-only">{localeNames[item]}</span>
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
 
 const isActive = (pathname: string, href: string) =>
   href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -13,6 +65,7 @@ const isActive = (pathname: string, href: string) =>
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const t = useTranslations("common.nav");
 
   // Close the menu whenever the route changes.
   useEffect(() => {
@@ -57,14 +110,14 @@ export default function Navbar() {
         }`}
       >
         <nav
-          aria-label="Main navigation"
+          aria-label={t("mainLabel")}
           className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-6 px-5 md:px-10"
         >
           <Link
             href="/"
             onClick={closeMenu}
             className="flex items-center gap-3"
-            aria-label="Olivier Rasolomanana, home"
+            aria-label={t("homeLabel")}
           >
             <span
               aria-hidden="true"
@@ -83,7 +136,7 @@ export default function Navbar() {
                   isMenuOpen ? "text-white/60" : "text-gray-500"
                 }`}
               >
-                Product Engineer
+                {t("role")}
               </span>
             </span>
           </Link>
@@ -103,7 +156,7 @@ export default function Navbar() {
                         : "text-gray-600 hover:text-neutral-950"
                     }`}
                   >
-                    {item.label}
+                    {t(item.key)}
                   </Link>
                 </li>
               );
@@ -111,6 +164,9 @@ export default function Navbar() {
           </ul>
 
           <div className="flex items-center gap-2 md:gap-4">
+            <div className={isMenuOpen ? "hidden" : "hidden sm:block"}>
+              <LocaleSwitcher />
+            </div>
             <Link
               href="/contact"
               onClick={closeMenu}
@@ -120,7 +176,7 @@ export default function Navbar() {
                   : "bg-neutral-950 text-white hover:bg-neutral-800"
               }`}
             >
-              Let&apos;s talk
+              {t("letsTalk")}
               <ArrowRight
                 aria-hidden="true"
                 className="size-4 transition-transform group-hover:translate-x-0.5"
@@ -129,14 +185,14 @@ export default function Navbar() {
 
             <button
               type="button"
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-label={isMenuOpen ? t("closeMenu") : t("openMenu")}
               aria-expanded={isMenuOpen}
               aria-controls="site-menu"
               onClick={() => setIsMenuOpen((current) => !current)}
               className="-mr-2 flex h-11 min-w-11 items-center justify-center gap-3 px-2 font-mono text-xs uppercase tracking-[0.2em] lg:hidden"
             >
               <span className="hidden md:block">
-                {isMenuOpen ? "Close" : "Menu"}
+                {isMenuOpen ? t("close") : t("menu")}
               </span>
               <span aria-hidden="true" className="relative h-4 w-6">
                 <motion.span
@@ -179,7 +235,7 @@ export default function Navbar() {
             <div className="pointer-events-none absolute -right-40 -top-40 h-96 w-96 rounded-full bg-violet-600/20 blur-3xl" />
 
             <motion.nav
-              aria-label="Menu"
+              aria-label={t("menu")}
               className="relative flex min-h-full flex-col justify-center gap-1 px-5 pb-10 pt-24 md:px-10"
               initial="hidden"
               animate="visible"
@@ -217,14 +273,14 @@ export default function Navbar() {
                         active ? "text-white" : "text-white/50"
                       }`}
                     >
-                      {item.label}
+                      {t(item.key)}
                     </Link>
                   </motion.div>
                 );
               })}
 
               <motion.div
-                className="mt-8"
+                className="mt-8 flex flex-wrap items-center gap-4"
                 variants={{
                   hidden: { opacity: 0, y: 18 },
                   visible: { opacity: 1, y: 0 },
@@ -236,12 +292,13 @@ export default function Navbar() {
                   onClick={closeMenu}
                   className="group inline-flex h-12 items-center gap-2 rounded-full border border-white/20 px-6 text-sm font-medium text-white/80 transition-colors hover:border-white/40 hover:text-white"
                 >
-                  Download CV
+                  {t("downloadCv")}
                   <ArrowDown
                     aria-hidden="true"
                     className="size-4 transition-transform group-hover:translate-y-0.5"
                   />
                 </a>
+                <LocaleSwitcher inverted onSwitch={closeMenu} />
               </motion.div>
             </motion.nav>
           </motion.div>

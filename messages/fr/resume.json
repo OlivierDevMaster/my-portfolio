@@ -1,0 +1,70 @@
+{
+  "metadata": {
+    "title": "CV — Olivier Rasolomanana",
+    "description": "Expérience, jugement et étendue technique qu’Olivier Rasolomanana apporte aux équipes qui transforment des idées de produit en logiciels utilisables."
+  },
+  "eyebrow": "(—) CV",
+  "title": "Une expérience façonnée par <em>la livraison.</em>",
+  "intro": "Un aperçu concis du travail, du jugement et de l’étendue technique que j’apporte aux équipes qui transforment des idées de produit en logiciels utilisables.",
+  "downloadCv": "Télécharger le CV (PDF)",
+  "getInTouch": "Me contacter",
+  "experience": {
+    "eyebrow": "(01) Expérience",
+    "title": "Un travail mesuré en <em>produits livrés.</em>",
+    "items": [
+      {
+        "period": "2025 — Aujourd’hui",
+        "company": "Indépendant",
+        "role": "Ingénieur produit",
+        "achievements": [
+          "Je construis quatre produits en ligne pour des fondateurs : Gando (fintech), Cléo Network (marketplace immobilière), Kididraw (edtech) et Mallow (application de réservation iOS).",
+          "Je porte chaque produit de bout en bout : périmètre, modèle de données, applications web et mobile, paiements et lancement.",
+          "Je travaille avec Next.js, React Native (Expo), Supabase et Stripe, en m’appuyant sur des agents de code IA tout en gardant la main sur les règles critiques."
+        ]
+      },
+      {
+        "period": "Juil. 2023 — Janv. 2025",
+        "company": "Fedhubs",
+        "role": "Développeur full-stack",
+        "achievements": [
+          "Conception et développement d’une application Flutter multiplateforme pour découvrir les restaurants à proximité et réserver en ligne.",
+          "Développement de la plateforme de gestion des restaurants : profils, réservations et cartes de fidélité.",
+          "Livraison d’une application d’administration interne pour l’équipe Fedhubs avec un outil low-code."
+        ]
+      },
+      {
+        "period": "Mars 2023 — Juil. 2023",
+        "company": "Fedhubs",
+        "role": "Stagiaire en développement front-end",
+        "achievements": [
+          "Création d’une application web pour améliorer la visibilité en ligne des restaurants à Paris."
+        ]
+      },
+      {
+        "period": "2021 — 2023",
+        "company": "Freelance et projets personnels",
+        "role": "Développeur",
+        "achievements": [
+          "Interfaces adaptatives et petites fonctionnalités produit avec React, Next.js et Laravel.",
+          "Création de Prompt AI, une plateforme pour partager et découvrir des prompts de génération de contenu par IA (Next.js, MongoDB)."
+        ]
+      }
+    ]
+  },
+  "foundation": {
+    "eyebrow": "(02) Fondations",
+    "title": "Un apprentissage qui reste <em>concret.</em>",
+    "educationLabel": "Formation",
+    "practiceLabel": "Pratique",
+    "education": [
+      "Licence en génie logiciel et bases de données — École Nationale d’Informatique (ENI), 2023 — 2025.",
+      "Finaliste d’une compétition d’algorithmique de l’ENI (2022) et du hackathon interne de l’ENI (2023).",
+      "Baccalauréat — Lycée Moderne Ampefiloha, 2020."
+    ],
+    "practice": [
+      "Développement web full-stack",
+      "Développement d’applications mobiles",
+      "Pratique de l’ingénierie produit"
+    ]
+  }
+}

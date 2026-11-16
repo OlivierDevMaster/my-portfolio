@@ -1,18 +1,34 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactForm from "./contact-form";
 import CopyEmail from "./copy-email";
 import { ArrowUpRight } from "lucide-react";
+import type { Locale } from "@/i18n/routing";
 import { socialLinks } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Contact — Olivier Rasolomanana",
-  description:
-    "Start a conversation about the product, platform, or workflow you want to build. Open to freelance builds and product engineering roles.",
-};
+type PageProps = { params: { locale: Locale } };
 
-const availability = ["Freelance builds", "Full-time product roles", "Remote work"];
+const em = (chunks: React.ReactNode) => (
+  <em className="italic text-violet-600">{chunks}</em>
+);
 
-export default function ContactPage() {
+export async function generateMetadata({
+  params: { locale },
+}: PageProps): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "contact.metadata" });
+  return { title: t("title"), description: t("description") };
+}
+
+export default async function ContactPage({ params: { locale } }: PageProps) {
+  setRequestLocale(locale);
+  const t = await getTranslations("contact");
+
+  const availability = [
+    t("availability.freelance"),
+    t("availability.fullTime"),
+    t("availability.remote"),
+  ];
+
   return (
     <div className="bg-white text-neutral-950">
       <main id="main" className="px-5 md:px-10">
@@ -20,17 +36,13 @@ export default function ContactPage() {
           {/* LEFT */}
           <div>
             <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
-              (—) Contact
+              {t("eyebrow")}
             </p>
             <h1 className="font-inter-tight text-5xl font-light leading-[0.95] tracking-tight text-balance md:text-7xl">
-              Bring me a{" "}
-              <em className="italic text-violet-600">problem</em> worth
-              solving.
+              {t.rich("title", { em })}
             </h1>
             <p className="mt-8 max-w-md text-lg leading-relaxed text-gray-500">
-              Send a short note about the product, platform, or workflow you want
-              to build or fix. Freelance build or full-time role, a few lines of
-              context are enough to start.
+              {t("intro")}
             </p>
 
             <div className="mt-8 flex flex-wrap gap-1.5 font-mono text-[11px] uppercase tracking-wider text-gray-500">
