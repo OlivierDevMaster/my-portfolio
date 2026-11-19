@@ -74,9 +74,34 @@
     "title": "Des notes tirées de <em>vrais</em> projets produit.",
     "viewAll": "Toutes les notes"
   },
+  "pricing": {
+    "label": "(03) Budget",
+    "labelWithWriting": "(04) Budget",
+    "title": "Les missions commencent à <em>1 200 €.</em>",
+    "body": "Un MVP complet, à partir de 8 000 €. La maintenance, à partir de 600 € par mois. Chaque projet reçoit un devis au forfait, par livrable.",
+    "steps": [
+      {
+        "n": "01",
+        "title": "Vous décrivez le besoin",
+        "body": "Quelques lignes sur ce que vous construisez et où ça bloque."
+      },
+      {
+        "n": "02",
+        "title": "Devis détaillé sous 24 h",
+        "body": "Une ligne par livrable, ce qui est inclus et ce qui ne l’est pas, le délai."
+      },
+      {
+        "n": "03",
+        "title": "Acompte, puis livraison",
+        "body": "30 % à la signature, le solde à la livraison. Mes corrections sont garanties 30 jours."
+      }
+    ],
+    "note": "Prix HT · Paiement en euros",
+    "cta": "Décrire mon projet"
+  },
   "contact": {
-    "label": "(03) Contact",
-    "labelWithWriting": "(04) Contact",
+    "label": "(04) Contact",
+    "labelWithWriting": "(05) Contact",
     "title": "Confiez-moi un <em>problème</em> qui en vaut la peine.",
     "body": "Ouvert aux missions en freelance et aux postes d’ingénieur produit, avec des équipes qui veulent transformer leurs idées en logiciels clairs et utilisables."
   }
