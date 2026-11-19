@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Hero from "@/components/hero";
 import ContactCta from "@/components/contact-cta";
+import PricingSection from "@/components/pricing-section";
 import ProjectRow from "@/components/project-row";
 import PostRow from "@/components/post-row";
 import { Link } from "@/i18n/navigation";
@@ -235,6 +236,15 @@ export default async function Home({ params: { locale } }: PageProps) {
             </div>
           </section>
         )}
+
+        {/* PRICING */}
+        <PricingSection
+          label={
+            posts.length >= 2
+              ? t("pricing.labelWithWriting")
+              : t("pricing.label")
+          }
+        />
 
         {/* CONTACT */}
         <ContactCta

@@ -74,9 +74,34 @@
     "title": "Notes from <em>real</em> product work.",
     "viewAll": "All notes"
   },
+  "pricing": {
+    "label": "(03) Budget",
+    "labelWithWriting": "(04) Budget",
+    "title": "Projects start at <em>€1,200.</em>",
+    "body": "A complete MVP starts at €8,000. Maintenance starts at €600 a month. Every project gets a fixed-price quote, item by item.",
+    "steps": [
+      {
+        "n": "01",
+        "title": "You describe what you need",
+        "body": "A few lines on what you are building and where it is stuck."
+      },
+      {
+        "n": "02",
+        "title": "A detailed quote within 24 hours",
+        "body": "One line per deliverable, what is included and what is not, and the timeline."
+      },
+      {
+        "n": "03",
+        "title": "Deposit, then delivery",
+        "body": "30% when you sign, the rest on delivery. My fixes are covered for 30 days."
+      }
+    ],
+    "note": "Prices exclude tax · Paid in euros",
+    "cta": "Describe my project"
+  },
   "contact": {
-    "label": "(03) Contact",
-    "labelWithWriting": "(04) Contact",
+    "label": "(04) Contact",
+    "labelWithWriting": "(05) Contact",
     "title": "Bring me a <em>problem</em> worth solving.",
     "body": "Open to freelance builds and product engineering roles, with teams that care about turning ideas into clear, usable software."
   }
