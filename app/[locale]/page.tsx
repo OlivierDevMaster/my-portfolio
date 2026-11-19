@@ -83,7 +83,7 @@ export default async function Home({ params: { locale } }: PageProps) {
           id="about"
           className="container mx-auto border-b border-gray-200 py-16 md:py-40"
         >
-          <div className="mb-10 grid gap-6 md:mb-20 lg:grid-cols-12 lg:gap-12">
+          <div data-reveal className="mb-10 grid gap-6 md:mb-20 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
                 {t("expertise.label")}
@@ -99,7 +99,7 @@ export default async function Home({ params: { locale } }: PageProps) {
             </div>
           </div>
 
-          <div className="grid gap-px bg-gray-200 md:grid-cols-3">
+          <div data-reveal className="grid gap-px bg-gray-200 md:grid-cols-3">
             {services.map((service) => (
               <div
                 key={service.n}
@@ -127,7 +127,7 @@ export default async function Home({ params: { locale } }: PageProps) {
           id="projects"
           className="container mx-auto border-b border-gray-200 py-16 md:py-40"
         >
-          <div className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
+          <div data-reveal className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
                 {t("work.label")}
@@ -142,7 +142,7 @@ export default async function Home({ params: { locale } }: PageProps) {
 
           <ul className="divide-y divide-gray-200 border-y border-gray-200">
             {currentProjects.map((project, index) => (
-              <li key={project.name}>
+              <li key={project.name} data-reveal>
                 <ProjectRow project={project} index={index} />
               </li>
             ))}
@@ -161,7 +161,7 @@ export default async function Home({ params: { locale } }: PageProps) {
 
         {/* NUMBERS */}
         <section className="container mx-auto border-b border-gray-200 py-16 md:py-40">
-          <div className="mb-10 grid gap-6 md:mb-20 lg:grid-cols-12 lg:gap-10">
+          <div data-reveal className="mb-10 grid gap-6 md:mb-20 lg:grid-cols-12 lg:gap-10">
             <div className="lg:col-span-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
                 {t("numbers.label")}
@@ -174,7 +174,7 @@ export default async function Home({ params: { locale } }: PageProps) {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-gray-200 bg-gray-200 md:grid-cols-4">
+          <div data-reveal className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-gray-200 bg-gray-200 md:grid-cols-4">
             {stats.map((stat) => (
               <div
                 key={stat.n}
@@ -204,7 +204,7 @@ export default async function Home({ params: { locale } }: PageProps) {
             id="articles"
             className="container mx-auto py-16 md:py-40"
           >
-            <div className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
+            <div data-reveal className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
               <div className="lg:col-span-4">
                 <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
                   {t("writing.label")}
@@ -219,7 +219,7 @@ export default async function Home({ params: { locale } }: PageProps) {
 
             <ul className="divide-y divide-gray-200 border-y border-gray-200">
               {posts.slice(0, 3).map((post) => (
-                <li key={post.slug}>
+                <li key={post.slug} data-reveal>
                   <PostRow post={post} as="h3" />
                 </li>
               ))}
@@ -248,6 +248,7 @@ export default async function Home({ params: { locale } }: PageProps) {
 
         {/* CONTACT */}
         <ContactCta
+          reveal
           label={
             posts.length >= 2
               ? t("contact.labelWithWriting")

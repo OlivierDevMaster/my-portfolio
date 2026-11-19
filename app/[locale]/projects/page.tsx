@@ -83,7 +83,7 @@ export default async function ProjectsPage({
 
               <ul className="divide-y divide-gray-200 border-y border-gray-200 lg:col-span-10">
                 {group.projects.map((project) => (
-                  <li key={project.name}>
+                  <li key={project.name} data-reveal>
                     <ProjectRow project={project} />
                   </li>
                 ))}
@@ -92,7 +92,7 @@ export default async function ProjectsPage({
           ))}
         </section>
 
-        <ContactCta />
+        <ContactCta reveal />
       </main>
     </div>
   );

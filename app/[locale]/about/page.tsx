@@ -51,7 +51,7 @@ export default async function AboutPage({ params: { locale } }: PageProps) {
 
         {/* PRINCIPLES */}
         <section className="container mx-auto border-b border-gray-200 py-16 md:py-40">
-          <div className="mb-10 grid gap-6 md:mb-20 lg:grid-cols-12 lg:gap-12">
+          <div data-reveal className="mb-10 grid gap-6 md:mb-20 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
                 {t("principles.eyebrow")}
@@ -64,7 +64,7 @@ export default async function AboutPage({ params: { locale } }: PageProps) {
             </div>
           </div>
 
-          <div className="grid gap-px bg-gray-200 md:grid-cols-3">
+          <div data-reveal className="grid gap-px bg-gray-200 md:grid-cols-3">
             {principles.map((principle) => (
               <div
                 key={principle.n}
@@ -89,7 +89,7 @@ export default async function AboutPage({ params: { locale } }: PageProps) {
 
         {/* SKILLS */}
         <section className="container mx-auto border-b border-gray-200 py-16 md:py-40">
-          <div className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
+          <div data-reveal className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
                 {t("skills.eyebrow")}
@@ -102,7 +102,7 @@ export default async function AboutPage({ params: { locale } }: PageProps) {
             </div>
           </div>
 
-          <div className="grid gap-px bg-gray-200 md:grid-cols-2">
+          <div data-reveal className="grid gap-px bg-gray-200 md:grid-cols-2">
             {skillGroups.map((group) => (
               <div key={group.title} className="bg-white p-8 md:p-10">
                 <h3 className="font-inter-tight text-2xl font-light">
@@ -125,7 +125,7 @@ export default async function AboutPage({ params: { locale } }: PageProps) {
 
         {/* TIMELINE */}
         <section className="container mx-auto py-16 md:py-40">
-          <div className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
+          <div data-reveal className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
                 {t("timeline.eyebrow")}
@@ -142,6 +142,7 @@ export default async function AboutPage({ params: { locale } }: PageProps) {
             {milestones.map((milestone) => (
               <li
                 key={milestone.year}
+                data-reveal
                 className="grid grid-cols-12 items-baseline gap-x-4 gap-y-3 py-8 md:py-10"
               >
                 <div className="col-span-12 md:col-span-2">
@@ -175,7 +176,7 @@ export default async function AboutPage({ params: { locale } }: PageProps) {
           </ul>
         </section>
 
-        <ContactCta />
+        <ContactCta reveal />
       </main>
     </div>
   );

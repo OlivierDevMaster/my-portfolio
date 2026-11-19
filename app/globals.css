@@ -84,3 +84,27 @@
     }
   }
 }
+
+/*
+ * Scroll reveal: blocks marked data-reveal come into focus (blur, fade, rise)
+ * as they enter the viewport, driven by the scroll position, no JavaScript.
+ * Decorative only: browsers without scroll-driven animations, and anyone who
+ * prefers reduced motion, see the content as is. Never used on blog pages.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    @keyframes reveal-blur {
+      from {
+        opacity: 0;
+        filter: blur(12px);
+        translate: 0 32px;
+      }
+    }
+
+    [data-reveal] {
+      animation: reveal-blur auto linear backwards;
+      animation-timeline: view();
+      animation-range: entry 0% entry 80%;
+    }
+  }
+}

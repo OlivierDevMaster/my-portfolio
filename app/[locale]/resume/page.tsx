@@ -74,7 +74,7 @@ export default async function ResumePage({ params: { locale } }: PageProps) {
 
         {/* EXPERIENCE */}
         <section className="container mx-auto border-b border-gray-200 py-16 md:py-40">
-          <div className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
+          <div data-reveal className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
                 {t("experience.eyebrow")}
@@ -91,6 +91,7 @@ export default async function ResumePage({ params: { locale } }: PageProps) {
             {experiences.map((experience) => (
               <li
                 key={experience.company}
+                data-reveal
                 className="grid grid-cols-12 gap-4 py-8 md:py-10"
               >
                 <div className="col-span-12 md:col-span-4">
@@ -119,7 +120,7 @@ export default async function ResumePage({ params: { locale } }: PageProps) {
 
         {/* EDUCATION + PRACTICE */}
         <section className="container mx-auto py-16 md:py-40">
-          <div className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
+          <div data-reveal className="mb-10 grid gap-6 md:mb-16 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
                 {t("foundation.eyebrow")}
@@ -132,7 +133,7 @@ export default async function ResumePage({ params: { locale } }: PageProps) {
             </div>
           </div>
 
-          <div className="grid gap-px bg-gray-200 md:grid-cols-2">
+          <div data-reveal className="grid gap-px bg-gray-200 md:grid-cols-2">
             <div className="bg-white p-8 md:p-10">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-gray-500">
                 {t("foundation.educationLabel")}
@@ -162,7 +163,7 @@ export default async function ResumePage({ params: { locale } }: PageProps) {
           </div>
         </section>
 
-        <ContactCta showResume={false} />
+        <ContactCta showResume={false} reveal />
       </main>
     </div>
   );

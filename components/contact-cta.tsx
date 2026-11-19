@@ -8,6 +8,8 @@ type ContactCtaProps = {
   title?: React.ReactNode;
   body?: string;
   showResume?: boolean;
+  /** Blurs the section in as it scrolls into view (kept off on blog pages). */
+  reveal?: boolean;
 };
 
 export default function ContactCta({
@@ -15,10 +17,13 @@ export default function ContactCta({
   title,
   body,
   showResume = true,
+  reveal = false,
 }: ContactCtaProps) {
   const t = useTranslations("common.cta");
   return (
-    <section className="container mx-auto border-t border-gray-200 py-20 text-center md:py-32">
+    <section
+      data-reveal={reveal || undefined}
+      className="container mx-auto border-t border-gray-200 py-20 text-center md:py-32">
       <p className="mb-5 font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
         {label ?? t("label")}
       </p>

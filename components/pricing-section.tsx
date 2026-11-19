@@ -18,7 +18,7 @@ export default function PricingSection({ label }: PricingSectionProps) {
       id="pricing"
       className="container mx-auto border-t border-gray-200 py-16 md:py-40"
     >
-      <div className="mb-10 grid gap-6 md:mb-20 lg:grid-cols-12 lg:gap-12">
+      <div data-reveal className="mb-10 grid gap-6 md:mb-20 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-4">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
             {label}
@@ -38,7 +38,7 @@ export default function PricingSection({ label }: PricingSectionProps) {
         </div>
       </div>
 
-      <ol className="grid border-y border-gray-200 md:grid-cols-3 md:gap-px md:bg-gray-200">
+      <ol data-reveal className="grid border-y border-gray-200 md:grid-cols-3 md:gap-px md:bg-gray-200">
         {steps.map((step) => (
           <li
             key={step.n}
@@ -59,7 +59,7 @@ export default function PricingSection({ label }: PricingSectionProps) {
         ))}
       </ol>
 
-      <div className="mt-10 flex flex-col-reverse items-stretch gap-4 md:mt-16 md:flex-row md:items-center md:justify-between">
+      <div data-reveal className="mt-10 flex flex-col-reverse items-stretch gap-4 md:mt-16 md:flex-row md:items-center md:justify-between">
         <p className="text-center font-mono text-[11px] uppercase tracking-wider text-gray-500 md:text-left md:text-xs">
           {t("note")}
         </p>
