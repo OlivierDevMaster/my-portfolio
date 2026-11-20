@@ -32,11 +32,21 @@
     "title": "Have something to <em>build?</em>",
     "body": "Tell me what you're building and where it's stuck. A few lines are enough to start.",
     "start": "Start a conversation",
-    "downloadCv": "Download CV"
+    "downloadCv": "Download CV (PDF)",
+    "bookTitle": "Book a 20-minute call",
+    "bookBody": "Pick a slot that suits you. Free, and nothing to prepare.",
+    "bookCta": "Choose a time",
+    "opensInNewTab": "(opens in a new tab)",
+    "briefTitle": "Send a brief",
+    "briefBody": "A few lines on what you're building and where it's stuck. You get a fixed-price quote within 24 hours.",
+    "briefLink": "Or send a written brief",
+    "emailTitle": "Prefer email?",
+    "emailBody": "Replies within 24 hours."
   },
   "project": {
     "visit": "Visit",
     "private": "Private",
+    "outcome": "Outcome",
     "opensInNewTab": "(opens in a new tab)"
   },
   "post": {

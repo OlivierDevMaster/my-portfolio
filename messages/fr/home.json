@@ -5,13 +5,15 @@
   },
   "hero": {
     "watermark": "développeur",
-    "eyebrow": "(—) Disponible pour de nouvelles missions",
-    "titleAccent": "Concevoir. Coder.",
-    "titleRest": "<ship>Livrer</ship> ce qui compte.",
-    "intro": "Je suis Olivier, ingénieur produit. J’aide les fondateurs et les équipes à transformer leurs idées de départ en produits web et mobiles que les gens utilisent vraiment. Plus de cinq ans à développer des logiciels full-stack, de la première esquisse à la production.",
+    "eyebrow": "Ingénieur produit · Web & mobile",
+    "title": "Je crée des produits web et mobiles pour les <em>fondateurs</em>, du MVP au lancement.",
+    "intro": "Plus de cinq ans de développement full-stack, de la première esquisse à la production. Plus de 20 produits en ligne aujourd’hui, dans la fintech, l’immobilier, l’éducation et la beauté.",
     "portraitAlt": "Portrait d’Olivier Rasolomanana",
+    "bookCall": "Réserver un appel de 20 min",
+    "opensInNewTab": "(s’ouvre dans un nouvel onglet)",
     "startProject": "Démarrer un projet",
-    "seeWork": "Voir une sélection"
+    "seeWork": "Voir les projets",
+    "pricingLink": "Missions dès 1 200 € · devis au forfait sous 24 h"
   },
   "stack": {
     "label": "Technologies avec lesquelles je travaille"
@@ -39,9 +41,13 @@
     ]
   },
   "work": {
-    "label": "(02) Projets en cours",
-    "title": "Les produits que je <em>construis</em> en ce moment.",
+    "label": "(02) Sélection",
+    "title": "Une sélection parmi <em>20+</em> produits en ligne.",
     "viewAll": "Voir tous les projets"
+  },
+  "testimonials": {
+    "label": "(—) Ce qu’en disent les clients",
+    "title": "Dans leurs <em>propres mots</em>."
   },
   "numbers": {
     "label": "(—) En chiffres",
@@ -54,18 +60,18 @@
       },
       {
         "n": "02",
-        "value": "10",
-        "label": "Produits livrés, de l’idée au lancement"
+        "value": "20+",
+        "label": "Produits en ligne, de l’idée au lancement"
       },
       {
         "n": "03",
-        "value": "15",
-        "label": "Outils utilisés sur de vrais projets"
+        "value": "24 h",
+        "label": "Pour un devis détaillé au forfait"
       },
       {
         "n": "04",
-        "value": "∞",
-        "label": "Leçons tirées de l’itération"
+        "value": "30",
+        "label": "Jours de corrections garanties après livraison"
       }
     ]
   },

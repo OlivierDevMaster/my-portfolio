@@ -86,6 +86,27 @@
 }
 
 /*
+ * Hero portrait: fades to 40% opacity over the first 450px of scroll, driven
+ * by the scroll position, no JavaScript. Without scroll-driven animations, or
+ * with reduced motion, the portrait simply stays fully visible.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    @keyframes hero-portrait-fade {
+      to {
+        opacity: 0.4;
+      }
+    }
+
+    .hero-portrait {
+      animation: hero-portrait-fade linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 450px;
+    }
+  }
+}
+
+/*
  * Scroll reveal: blocks marked data-reveal come into focus (blur, fade, rise)
  * as they enter the viewport, driven by the scroll position, no JavaScript.
  * Decorative only: browsers without scroll-driven animations, and anyone who

@@ -5,13 +5,15 @@
   },
   "hero": {
     "watermark": "developer",
-    "eyebrow": "(—) Currently open to new work",
-    "titleAccent": "Design. Code.",
-    "titleRest": "<ship>Ship</ship> what matters.",
-    "intro": "I'm Olivier, a product engineer who helps founders and teams turn early ideas into web and mobile products people actually use. Over five years building full-stack software, from first sketch to production.",
+    "eyebrow": "Product engineer · Web & mobile",
+    "title": "I build web and mobile products for <em>founders</em>, from MVP to launch.",
+    "intro": "Over five years of full-stack work, from first sketch to production. 20+ products live today, in fintech, real estate, education and beauty.",
     "portraitAlt": "Portrait of Olivier Rasolomanana",
+    "bookCall": "Book a 20-min call",
+    "opensInNewTab": "(opens in a new tab)",
     "startProject": "Start a project",
-    "seeWork": "See selected work"
+    "seeWork": "See the work",
+    "pricingLink": "Projects from €1,200 · fixed quote in 24h"
   },
   "stack": {
     "label": "Technologies I work with"
@@ -39,9 +41,13 @@
     ]
   },
   "work": {
-    "label": "(02) Current work",
-    "title": "Products I'm <em>building</em> right now.",
+    "label": "(02) Selected work",
+    "title": "Selected from <em>20+</em> live products.",
     "viewAll": "View all projects"
+  },
+  "testimonials": {
+    "label": "(—) What clients say",
+    "title": "In their <em>own words</em>."
   },
   "numbers": {
     "label": "(—) By the numbers",
@@ -54,18 +60,18 @@
       },
       {
         "n": "02",
-        "value": "10",
-        "label": "Products delivered idea to launch"
+        "value": "20+",
+        "label": "Products live, built idea to launch"
       },
       {
         "n": "03",
-        "value": "15",
-        "label": "Tools across real product work"
+        "value": "24h",
+        "label": "To a detailed, fixed-price quote"
       },
       {
         "n": "04",
-        "value": "∞",
-        "label": "Lessons from iteration"
+        "value": "30",
+        "label": "Days of fixes covered after delivery"
       }
     ]
   },

@@ -6,6 +6,7 @@
   "eyebrow": "(—) Contact",
   "title": "Bring me a <em>problem</em> worth solving.",
   "intro": "Send a short note about the product, platform, or workflow you want to build or fix. Freelance build or full-time role, a few lines of context are enough to start.",
+  "introBooking": "Book a 20-minute call, or send a few lines about the product, platform or workflow you want to build or fix. Freelance build or full-time role, either works.",
   "availability": {
     "freelance": "Freelance builds",
     "fullTime": "Full-time product roles",
@@ -14,6 +15,17 @@
   "copyEmail": {
     "copy": "Copy",
     "copied": "Copied"
+  },
+  "options": {
+    "label": "How to get in touch",
+    "book": "Book a call",
+    "brief": "Send a brief",
+    "bookEyebrow": "Intro call · 20 min",
+    "bookTitle": "Pick a time that suits you.",
+    "bookBody": "A short video call to see if we're a good fit. Free, and nothing to prepare: bring your idea, a document or a few questions.",
+    "bookCta": "Choose a time",
+    "bookHint": "Opens the booking page in a new tab. You get a calendar invite and a video link by email.",
+    "opensInNewTab": "(opens in a new tab)"
   },
   "form": {
     "eyebrow": "Start with context",
@@ -30,6 +42,20 @@
     "emailPlaceholder": "you@company.com",
     "message": "Message",
     "messagePlaceholder": "What are you building, and where are you stuck?",
+    "budget": "Budget",
+    "budgets": {
+      "small": "€1,200 – €3,000",
+      "medium": "€3,000 – €8,000",
+      "mvp": "€8,000+ (complete MVP)",
+      "unsure": "Not sure yet"
+    },
+    "start": "Ideal start",
+    "starts": {
+      "asap": "As soon as possible",
+      "month": "Within a month",
+      "quarter": "In 1–3 months",
+      "exploring": "Just exploring"
+    },
     "submit": "Send message",
     "subject": "{topic} — portfolio inquiry from {name}",
     "hint": "Opens your email app with everything filled in.",

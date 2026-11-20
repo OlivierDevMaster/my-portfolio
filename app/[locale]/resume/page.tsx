@@ -4,6 +4,7 @@ import { ArrowDown, ArrowRight } from "lucide-react";
 import ContactCta from "@/components/contact-cta";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { alternatesFor } from "@/lib/seo";
 import { CV_PATH } from "@/lib/site";
 
 type PageProps = { params: { locale: Locale } };
@@ -23,7 +24,11 @@ export async function generateMetadata({
   params: { locale },
 }: PageProps): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "resume.metadata" });
-  return { title: t("title"), description: t("description") };
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: alternatesFor(locale, "/resume"),
+  };
 }
 
 export default async function ResumePage({ params: { locale } }: PageProps) {
@@ -87,7 +92,7 @@ export default async function ResumePage({ params: { locale } }: PageProps) {
             </div>
           </div>
 
-          <ul className="divide-y divide-gray-200 border-y border-gray-200">
+          <ul className="divide-y divide-gray-200 border-t border-gray-200">
             {experiences.map((experience) => (
               <li
                 key={experience.company}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactCta from "@/components/contact-cta";
 import type { Locale } from "@/i18n/routing";
+import { alternatesFor } from "@/lib/seo";
 
 type PageProps = { params: { locale: Locale } };
 
@@ -23,7 +24,11 @@ export async function generateMetadata({
   params: { locale },
 }: PageProps): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "about.metadata" });
-  return { title: t("title"), description: t("description") };
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: alternatesFor(locale, "/about"),
+  };
 }
 
 export default async function AboutPage({ params: { locale } }: PageProps) {

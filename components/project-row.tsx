@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, TrendingUp } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/i18n/routing";
 import type { Project } from "@/lib/projects";
@@ -36,9 +36,24 @@ export default function ProjectRow({ project, index }: ProjectRowProps) {
           {project.name}
         </h3>
       </div>
-      <p className="col-span-12 text-sm leading-relaxed text-gray-600 md:col-span-5 lg:text-base">
-        {project.description[locale]}
-      </p>
+      <div className="col-span-12 md:col-span-5">
+        <p className="text-sm leading-relaxed text-gray-600 lg:text-base">
+          {project.description[locale]}
+        </p>
+        {project.outcome && (
+          <p className="mt-3 flex items-start gap-2 rounded-lg bg-violet-50 px-3 py-2 text-sm leading-relaxed text-neutral-950">
+            <TrendingUp
+              aria-hidden="true"
+              className="mt-0.5 size-4 shrink-0 text-violet-600"
+            />
+            <span>
+              <span className="font-medium">{t("outcome")}</span>
+              {" · "}
+              {project.outcome[locale]}
+            </span>
+          </p>
+        )}
+      </div>
       <div className="col-span-8 flex flex-wrap gap-1.5 font-mono text-[11px] uppercase tracking-wider text-gray-500 md:col-span-2">
         {project.stack.map((tech) => (
           <span

@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactCta from "@/components/contact-cta";
 import ProjectRow from "@/components/project-row";
 import type { Locale } from "@/i18n/routing";
+import { alternatesFor } from "@/lib/seo";
 import { currentProjects, pastProjects } from "@/lib/projects";
 
 type PageProps = { params: { locale: Locale } };
@@ -18,6 +19,7 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
+    alternates: alternatesFor(locale, "/projects"),
     openGraph: {
       title: t("ogTitle"),
       description: t("ogDescription"),
@@ -68,11 +70,14 @@ export default async function ProjectsPage({
           {groups.map((group) => (
             <div
               key={group.key}
-              className="grid gap-4 lg:grid-cols-12 lg:gap-8"
+              className="grid gap-4 xl:grid-cols-12 xl:gap-8"
             >
-              <div className="lg:col-span-2">
-                <div className="flex items-baseline gap-4 lg:sticky lg:top-24 lg:block">
-                  <h2 className="font-inter-tight text-5xl font-light text-violet-600 md:text-6xl">
+              {/* The label sits beside the list (and stays in view while
+                  scrolling) only from xl, where its column is wide enough for
+                  the longest French label ("Maintenant"); below, it stacks. */}
+              <div className="xl:col-span-3">
+                <div className="flex flex-wrap items-baseline gap-x-4 xl:sticky xl:top-24 xl:block">
+                  <h2 className="font-inter-tight text-5xl font-light text-violet-600 md:text-6xl xl:text-5xl">
                     {group.label}
                   </h2>
                   <p className="mt-2 font-mono text-xs uppercase tracking-widest text-gray-500">
@@ -81,7 +86,9 @@ export default async function ProjectsPage({
                 </div>
               </div>
 
-              <ul className="divide-y divide-gray-200 border-y border-gray-200 lg:col-span-10">
+              {/* Top border only: the next group (or the closing CTA) draws
+                  the following line, so lines never double up. */}
+              <ul className="divide-y divide-gray-200 border-t border-gray-200 xl:col-span-9">
                 {group.projects.map((project) => (
                   <li key={project.name} data-reveal>
                     <ProjectRow project={project} />

@@ -32,11 +32,21 @@
     "title": "Vous avez quelque chose à <em>construire ?</em>",
     "body": "Dites-moi ce que vous construisez et où ça bloque. Quelques lignes suffisent pour commencer.",
     "start": "Lancer la conversation",
-    "downloadCv": "Télécharger le CV"
+    "downloadCv": "Télécharger le CV (PDF)",
+    "bookTitle": "Réserver un appel de 20 minutes",
+    "bookBody": "Choisissez le créneau qui vous convient. Gratuit, et rien à préparer.",
+    "bookCta": "Choisir un créneau",
+    "opensInNewTab": "(s’ouvre dans un nouvel onglet)",
+    "briefTitle": "Envoyer un brief",
+    "briefBody": "Quelques lignes sur ce que vous construisez et où ça bloque. Vous recevez un devis au forfait sous 24 heures.",
+    "briefLink": "Ou envoyer un brief écrit",
+    "emailTitle": "Vous préférez l’e-mail ?",
+    "emailBody": "Réponse sous 24 heures."
   },
   "project": {
     "visit": "Voir",
     "private": "Privé",
+    "outcome": "Résultat",
     "opensInNewTab": "(s’ouvre dans un nouvel onglet)"
   },
   "post": {

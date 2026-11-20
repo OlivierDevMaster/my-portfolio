@@ -7,6 +7,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { routing } from "@/i18n/routing";
+import { SITE_URL } from "@/lib/site";
 import "../globals.css";
 
 const geistSans = localFont({
@@ -38,14 +39,17 @@ export async function generateMetadata({
 }: Omit<LayoutProps, "children">): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "common.metadata" });
   return {
+    metadataBase: new URL(SITE_URL),
     title: t("title"),
     description: t("description"),
     openGraph: {
       title: t("title"),
       description: t("ogDescription"),
       type: "website",
+      siteName: "Olivier Rasolomanana",
       locale: locale === "fr" ? "fr_FR" : "en_US",
     },
+    twitter: { card: "summary_large_image" },
   };
 }
 
@@ -57,12 +61,15 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   const t = await getTranslations("common");
   const messages = await getMessages();
-  // Only the namespaces client components read (navbar, hero, contact form),
+  // Only the namespaces client components read (navbar, contact page),
   // so each page doesn't ship every page's text to the browser.
   const clientMessages = {
     common: { nav: messages.common.nav },
-    home: { hero: messages.home.hero },
-    contact: { form: messages.contact.form, copyEmail: messages.contact.copyEmail },
+    contact: {
+      form: messages.contact.form,
+      copyEmail: messages.contact.copyEmail,
+      options: messages.contact.options,
+    },
   };
 
   return (

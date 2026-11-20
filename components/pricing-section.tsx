@@ -64,7 +64,7 @@ export default function PricingSection({ label }: PricingSectionProps) {
           {t("note")}
         </p>
         <Link
-          href="/contact"
+          href="/contact#brief"
           className="group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-violet-600 px-8 font-medium text-white transition hover:bg-violet-700"
         >
           {t("cta")}

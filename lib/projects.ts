@@ -7,6 +7,12 @@ export type Project = {
   name: string;
   tag: Localized;
   description: Localized;
+  /**
+   * One measurable result, e.g. "120 operators onboarded in 3 months".
+   * Real, checkable numbers only (and with the client's OK); shown on the row
+   * when set.
+   */
+  outcome?: Localized;
   stack: string[];
   /** Public URL, or null when the project is private. */
   url: string | null;

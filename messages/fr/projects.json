@@ -5,9 +5,9 @@
     "ogTitle": "Projets — Olivier Rasolomanana",
     "ogDescription": "Produits fintech, marketplaces, edtech et mobiles, de l’idée au lancement."
   },
-  "eyebrow": "(—) Projets · {count, plural, one {# produit} other {# produits}}",
-  "title": "Tout ce que j’ai <em>livré</em>, au même endroit.",
-  "intro": "Fintech, marketplaces, edtech et applications mobiles. Ce que je construis en ce moment passe en premier, suivi des travaux antérieurs.",
+  "eyebrow": "(—) Projets · {count, plural, one {# produit présenté} other {# produits présentés}}",
+  "title": "Une sélection de ce que j’ai <em>livré</em>.",
+  "intro": "Fintech, marketplaces, edtech et applications mobiles, choisis parmi plus de 20 produits en ligne. Ce que je construis en ce moment passe en premier, suivi des travaux antérieurs.",
   "groups": {
     "now": {
       "label": "Maintenant",

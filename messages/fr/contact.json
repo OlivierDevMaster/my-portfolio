@@ -6,6 +6,7 @@
   "eyebrow": "(—) Contact",
   "title": "Apportez-moi un <em>problème</em> à résoudre.",
   "intro": "Envoyez-moi quelques lignes sur le produit, la plateforme ou le flux de travail que vous voulez construire ou corriger. Mission en freelance ou poste à temps plein : quelques lignes de contexte suffisent pour commencer.",
+  "introBooking": "Réservez un appel de 20 minutes, ou envoyez quelques lignes sur le produit, la plateforme ou le flux de travail que vous voulez construire ou corriger. Mission en freelance ou poste à temps plein, les deux me vont.",
   "availability": {
     "freelance": "Missions en freelance",
     "fullTime": "Postes à temps plein",
@@ -14,6 +15,17 @@
   "copyEmail": {
     "copy": "Copier",
     "copied": "Copié"
+  },
+  "options": {
+    "label": "Comment me contacter",
+    "book": "Réserver un appel",
+    "brief": "Envoyer un brief",
+    "bookEyebrow": "Appel découverte · 20 min",
+    "bookTitle": "Choisissez le créneau qui vous convient.",
+    "bookBody": "Un court appel vidéo pour voir si nous sommes faits pour travailler ensemble. Gratuit, et rien à préparer : venez avec votre idée, un document ou quelques questions.",
+    "bookCta": "Choisir un créneau",
+    "bookHint": "Ouvre la page de réservation dans un nouvel onglet. Vous recevez une invitation d’agenda et un lien vidéo par e-mail.",
+    "opensInNewTab": "(s’ouvre dans un nouvel onglet)"
   },
   "form": {
     "eyebrow": "Commencez par le contexte",
@@ -30,6 +42,20 @@
     "emailPlaceholder": "vous@entreprise.fr",
     "message": "Message",
     "messagePlaceholder": "Que construisez-vous, et où ça bloque ?",
+    "budget": "Budget",
+    "budgets": {
+      "small": "1 200 € – 3 000 €",
+      "medium": "3 000 € – 8 000 €",
+      "mvp": "8 000 € et plus (MVP complet)",
+      "unsure": "Je ne sais pas encore"
+    },
+    "start": "Démarrage souhaité",
+    "starts": {
+      "asap": "Dès que possible",
+      "month": "Dans le mois",
+      "quarter": "Dans 1 à 3 mois",
+      "exploring": "Je me renseigne"
+    },
     "submit": "Envoyer le message",
     "subject": "{topic} — demande de {name} via le portfolio",
     "hint": "Ouvre votre client de messagerie avec le message déjà rempli.",

@@ -1,48 +1,22 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { getTranslations } from "next-intl/server";
+import { ArrowDown, ArrowRight, CalendarDays } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { BOOKING_URL } from "@/lib/site";
 import { Button } from "./ui/button";
 
-// Entrance animation runs in CSS so the hero is visible before hydration.
+// Server Component: the entrance animation is CSS (tailwindcss-animate) and the
+// portrait's scroll fade is a CSS scroll-driven animation (`hero-portrait` in
+// globals.css), so the hero ships no JavaScript and shows before hydration.
 
-// The French headline ("Concevoir. Coder.") is ~30% longer than the English
-// one ("Design. Code."). Its sizes are measured per breakpoint so the first
-// line stays on one line and the headline keeps three lines, like the English.
-const titleSize = {
-  en: "text-[clamp(2.6rem,12vw,3.5rem)] md:text-6xl lg:text-8xl",
-  fr: "text-[clamp(2.25rem,calc(12.5vw-5px),3.25rem)] md:text-[2.4375rem] lg:text-[3.875rem] xl:text-[4.875rem] 2xl:text-[6rem]",
-} as const;
 const reveal =
   "animate-in fade-in slide-in-from-bottom-6 fill-mode-both duration-700 ease-out motion-reduce:animate-none";
 
-export default function Hero() {
-  const t = useTranslations("home.hero");
-  const locale = useLocale() === "fr" ? "fr" : "en";
-  const [imageOpacity, setImageOpacity] = useState(1);
-
-  useEffect(() => {
-    let animationFrameId: number;
-
-    const handleScroll = () => {
-      window.cancelAnimationFrame(animationFrameId);
-      animationFrameId = window.requestAnimationFrame(() => {
-        const fadeProgress = Math.min(window.scrollY / 450, 1);
-        setImageOpacity(Math.max(1 - fadeProgress * 0.6, 0.4));
-      });
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.cancelAnimationFrame(animationFrameId);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+export default async function Hero() {
+  const t = await getTranslations("home.hero");
+  const em = (chunks: React.ReactNode) => (
+    <em className="italic text-violet-600">{chunks}</em>
+  );
 
   return (
     <section className="container relative isolate mx-auto flex flex-col overflow-hidden pb-8 pt-16 md:min-h-[720px] md:justify-center md:overflow-visible md:py-4 md:pt-6">
@@ -57,7 +31,7 @@ export default function Hero() {
       </div>
 
       <div className="relative grid flex-1 items-end gap-8 md:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.85fr)] md:items-center md:gap-10">
-        <div className="relative z-10 order-2 mt-[clamp(150px,44vw,190px)] max-w-2xl md:order-1 md:mt-0">
+        <div className="relative z-10 order-2 mt-[clamp(190px,56vw,230px)] max-w-2xl md:order-1 md:mt-0">
           <p
             className={`${reveal} mb-5 font-mono text-xs uppercase tracking-[0.2em] text-violet-600`}
           >
@@ -65,13 +39,9 @@ export default function Hero() {
           </p>
 
           <h1
-            className={`${reveal} delay-150 max-w-full font-inter-tight font-light leading-[1.08] tracking-tight text-gray-950 ${titleSize[locale]}`}
+            className={`${reveal} delay-150 max-w-full text-balance font-inter-tight text-[clamp(2.25rem,10vw,2.75rem)] font-light leading-[1.08] tracking-tight text-gray-950 md:text-[2.75rem] lg:text-5xl xl:text-6xl`}
           >
-            <span className="text-violet-600">{t("titleAccent")}</span>
-            <br />
-            {t.rich("titleRest", {
-              ship: (chunks) => <span className="italic">{chunks}</span>,
-            })}
+            {t.rich("title", { em })}
           </h1>
 
           <p
@@ -83,11 +53,21 @@ export default function Hero() {
           <div
             className={`${reveal} delay-500 mt-8 flex flex-col gap-3 sm:flex-row sm:items-center`}
           >
-            <Button size="lg" asChild>
-              <Link href="/contact">
-                {t("startProject")} <ArrowRight aria-hidden="true" />
-              </Link>
-            </Button>
+            {BOOKING_URL ? (
+              <Button size="lg" asChild>
+                <a href={BOOKING_URL} target="_blank" rel="noreferrer">
+                  <CalendarDays aria-hidden="true" />
+                  {t("bookCall")}
+                  <span className="sr-only"> {t("opensInNewTab")}</span>
+                </a>
+              </Button>
+            ) : (
+              <Button size="lg" asChild>
+                <Link href="/contact">
+                  {t("startProject")} <ArrowRight aria-hidden="true" />
+                </Link>
+              </Button>
+            )}
             <Button size="lg" variant="outline" asChild>
               <a href="#projects">
                 {t("seeWork")}
@@ -95,13 +75,18 @@ export default function Hero() {
               </a>
             </Button>
           </div>
+
+          <a
+            href="#pricing"
+            className={`${reveal} delay-700 mt-4 inline-flex min-h-11 items-center gap-1.5 text-[15px] text-violet-600 underline underline-offset-4 transition-colors hover:text-violet-700`}
+          >
+            {t("pricingLink")}
+            <ArrowRight aria-hidden="true" className="size-4" />
+          </a>
         </div>
 
         <div className="pointer-events-none absolute inset-x-0 top-0 z-0 flex justify-end md:pointer-events-auto md:relative md:inset-auto md:order-2 md:self-stretch">
-          <div
-            className="relative h-[clamp(300px,95vw,420px)] w-[85%] max-w-[400px] translate-x-8 transition-opacity duration-200 ease-linear md:h-full md:min-h-[600px] md:w-full md:max-w-[800px] md:translate-x-0"
-            style={{ opacity: imageOpacity }}
-          >
+          <div className="hero-portrait relative h-[clamp(300px,95vw,420px)] w-[85%] max-w-[400px] translate-x-8 md:h-full md:min-h-[600px] md:w-full md:max-w-[800px] md:translate-x-0">
             <Image
               src="/me.png"
               alt={t("portraitAlt")}

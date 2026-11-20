@@ -5,10 +5,20 @@ import ContactCta from "@/components/contact-cta";
 import PricingSection from "@/components/pricing-section";
 import ProjectRow from "@/components/project-row";
 import PostRow from "@/components/post-row";
+import TestimonialsSection from "@/components/testimonials-section";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { currentProjects } from "@/lib/projects";
 import { getPosts } from "@/lib/posts";
+import { alternatesFor, localePath } from "@/lib/seo";
+import { SITE_URL, socialLinks } from "@/lib/site";
+import { exampleTestimonials, testimonials } from "@/lib/testimonials";
+
+// Real quotes when there are some; otherwise example quotes in development
+// only, so the section's design can be previewed. Production shows nothing.
+const isPreview =
+  testimonials.length === 0 && process.env.NODE_ENV === "development";
+const shownTestimonials = isPreview ? exampleTestimonials : testimonials;
 import { ArrowRight } from "lucide-react";
 
 type PageProps = { params: { locale: Locale } };
@@ -39,7 +49,11 @@ export async function generateMetadata({
   params: { locale },
 }: PageProps): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "home.metadata" });
-  return { title: t("title"), description: t("description") };
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: alternatesFor(locale, "/"),
+  };
 }
 
 export default async function Home({ params: { locale } }: PageProps) {
@@ -48,9 +62,27 @@ export default async function Home({ params: { locale } }: PageProps) {
   const posts = getPosts(locale);
   const services = t.raw("expertise.services") as Service[];
   const stats = t.raw("numbers.stats") as Stat[];
+  const tNav = await getTranslations("common.nav");
+
+  // Tells search engines who the site is about (name, role, profiles).
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Olivier Rasolomanana",
+    jobTitle: tNav("role"),
+    url: `${SITE_URL}${localePath(locale, "/")}`,
+    image: `${SITE_URL}/me.png`,
+    sameAs: socialLinks.map((social) => social.href),
+  };
 
   return (
     <div className="bg-white text-neutral-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <main id="main" className="px-5 md:px-10">
         <Hero />
 
@@ -158,6 +190,14 @@ export default async function Home({ params: { locale } }: PageProps) {
             </Link>
           </div>
         </section>
+
+        {/* TESTIMONIALS (real quotes; example quotes in development only) */}
+        {shownTestimonials.length > 0 && (
+          <TestimonialsSection
+            testimonials={shownTestimonials}
+            preview={isPreview}
+          />
+        )}
 
         {/* NUMBERS */}
         <section className="container mx-auto border-b border-gray-200 py-16 md:py-40">

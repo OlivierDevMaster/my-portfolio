@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import ContactForm from "./contact-form";
+import ContactOptions from "./contact-options";
 import CopyEmail from "./copy-email";
 import { ArrowUpRight } from "lucide-react";
 import type { Locale } from "@/i18n/routing";
-import { socialLinks } from "@/lib/site";
+import { alternatesFor } from "@/lib/seo";
+import { BOOKING_URL, socialLinks } from "@/lib/site";
 
 type PageProps = { params: { locale: Locale } };
 
@@ -16,7 +17,11 @@ export async function generateMetadata({
   params: { locale },
 }: PageProps): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "contact.metadata" });
-  return { title: t("title"), description: t("description") };
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: alternatesFor(locale, "/contact"),
+  };
 }
 
 export default async function ContactPage({ params: { locale } }: PageProps) {
@@ -32,9 +37,12 @@ export default async function ContactPage({ params: { locale } }: PageProps) {
   return (
     <div className="bg-white text-neutral-950">
       <main id="main" className="px-5 md:px-10">
-        <section className="container mx-auto grid gap-12 pb-16 pt-28 md:gap-16 md:pb-24 md:pt-40 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-24">
-          {/* LEFT */}
-          <div>
+        {/* Mobile order: intro, then the ways to get in touch, then email and
+            profiles. Desktop: intro and email/profiles on the left, options
+            on the right. min-w-0 keeps long content (the email) inside. */}
+        <section className="container mx-auto grid gap-12 pb-16 pt-28 md:gap-16 md:pb-24 md:pt-40 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-x-24 lg:gap-y-0">
+          {/* INTRO */}
+          <div className="min-w-0 lg:col-start-1 lg:row-start-1">
             <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
               {t("eyebrow")}
             </p>
@@ -42,7 +50,7 @@ export default async function ContactPage({ params: { locale } }: PageProps) {
               {t.rich("title", { em })}
             </h1>
             <p className="mt-8 max-w-md text-lg leading-relaxed text-gray-500">
-              {t("intro")}
+              {BOOKING_URL ? t("introBooking") : t("intro")}
             </p>
 
             <div className="mt-8 flex flex-wrap gap-1.5 font-mono text-[11px] uppercase tracking-wider text-gray-500">
@@ -55,7 +63,15 @@ export default async function ContactPage({ params: { locale } }: PageProps) {
                 </span>
               ))}
             </div>
+          </div>
 
+          {/* OPTIONS */}
+          <div className="min-w-0 lg:col-start-2 lg:row-span-2 lg:row-start-1">
+            <ContactOptions bookingUrl={BOOKING_URL} />
+          </div>
+
+          {/* EMAIL + PROFILES */}
+          <div className="min-w-0 lg:col-start-1 lg:row-start-2 [&>*:first-child]:mt-0 lg:[&>*:first-child]:mt-10">
             <CopyEmail />
 
             <div className="mt-10 divide-y divide-gray-200 border-y border-gray-200">
@@ -80,9 +96,6 @@ export default async function ContactPage({ params: { locale } }: PageProps) {
               })}
             </div>
           </div>
-
-          {/* RIGHT */}
-          <ContactForm />
         </section>
       </main>
     </div>

@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactCta from "@/components/contact-cta";
 import PostRow from "@/components/post-row";
 import type { Locale } from "@/i18n/routing";
+import { alternatesFor } from "@/lib/seo";
 import { getPosts } from "@/lib/posts";
 
 type PageProps = { params: { locale: Locale } };
@@ -15,7 +16,11 @@ export async function generateMetadata({
   params: { locale },
 }: PageProps): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "blog.metadata" });
-  return { title: t("title"), description: t("description") };
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: alternatesFor(locale, "/blog"),
+  };
 }
 
 export default async function BlogPage({ params: { locale } }: PageProps) {

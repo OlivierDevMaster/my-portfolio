@@ -11,11 +11,26 @@ const fieldClass =
 export default function ContactForm() {
   const t = useTranslations("contact.form");
   const [sent, setSent] = useState(false);
+  const [topicIndex, setTopicIndex] = useState(0);
 
   const topics = [
     t("topics.freelance"),
     t("topics.fullTime"),
     t("topics.other"),
+  ];
+  // Budget and start date only matter for a freelance build (the first topic).
+  const isFreelance = topicIndex === 0;
+  const budgets = [
+    t("budgets.small"),
+    t("budgets.medium"),
+    t("budgets.mvp"),
+    t("budgets.unsure"),
+  ];
+  const starts = [
+    t("starts.asap"),
+    t("starts.month"),
+    t("starts.quarter"),
+    t("starts.exploring"),
   ];
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -26,9 +41,14 @@ export default function ContactForm() {
     const email = String(formData.get("email") || "");
     const topic = String(formData.get("topic") || "");
     const message = String(formData.get("message") || "");
+    const budget = String(formData.get("budget") || "");
+    const start = String(formData.get("start") || "");
 
+    const details = isFreelance
+      ? `\n\n${t("budget")}: ${budget}\n${t("start")}: ${start}`
+      : "";
     const subject = t("subject", { topic, name });
-    const body = `${message}\n\n—\n${name}\n${email}`;
+    const body = `${message}${details}\n\n—\n${name}\n${email}`;
 
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
       subject
@@ -38,8 +58,9 @@ export default function ContactForm() {
 
   return (
     <form
+      id="brief"
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-gray-200 p-5 sm:p-6 md:p-10"
+      className="scroll-mt-28 rounded-2xl border border-gray-200 p-5 sm:p-6 md:p-10"
     >
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-600">
         {t("eyebrow")}
@@ -59,7 +80,8 @@ export default function ContactForm() {
                 type="radio"
                 name="topic"
                 value={topic}
-                defaultChecked={index === 0}
+                checked={topicIndex === index}
+                onChange={() => setTopicIndex(index)}
                 className="peer sr-only"
               />
               <span className="inline-flex h-10 items-center rounded-full border border-gray-200 px-4 text-sm text-gray-600 transition peer-checked:border-violet-600 peer-checked:bg-violet-50 peer-checked:text-violet-700 peer-focus-visible:ring-2 peer-focus-visible:ring-violet-600 peer-focus-visible:ring-offset-2">
@@ -112,6 +134,44 @@ export default function ContactForm() {
             placeholder={t("messagePlaceholder")}
           />
         </label>
+
+        {isFreelance && (
+          <div className="grid gap-6 sm:grid-cols-2">
+            <label className="grid gap-1">
+              <span className="font-mono text-[11px] uppercase tracking-widest text-gray-500">
+                {t("budget")}
+              </span>
+              <select
+                name="budget"
+                defaultValue={budgets[0]}
+                className={`${fieldClass} cursor-pointer`}
+              >
+                {budgets.map((budget) => (
+                  <option key={budget} value={budget}>
+                    {budget}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="grid gap-1">
+              <span className="font-mono text-[11px] uppercase tracking-widest text-gray-500">
+                {t("start")}
+              </span>
+              <select
+                name="start"
+                defaultValue={starts[0]}
+                className={`${fieldClass} cursor-pointer`}
+              >
+                {starts.map((start) => (
+                  <option key={start} value={start}>
+                    {start}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+        )}
       </div>
 
       <button

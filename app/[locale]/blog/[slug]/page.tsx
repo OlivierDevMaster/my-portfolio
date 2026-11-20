@@ -7,6 +7,7 @@ import PostBody from "@/components/post-body";
 import PostRow from "@/components/post-row";
 import { Link } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
+import { alternatesFor } from "@/lib/seo";
 import { currentProjects, pastProjects } from "@/lib/projects";
 import {
   formatPostDate,
@@ -34,6 +35,7 @@ export function generateMetadata({
   return {
     title: `${post.title} — Olivier Rasolomanana`,
     description: post.description,
+    alternates: alternatesFor(locale, `/blog/${slug}`),
     openGraph: {
       title: post.title,
       description: post.description,
